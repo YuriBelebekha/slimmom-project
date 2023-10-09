@@ -11,7 +11,7 @@ export const Layout = () => {
     <Wrapper>
       {/* <AppBar /> */}
       
-      <Container >      
+      <Container>      
         <Suspense fallback={null}>
           <Outlet />
         </Suspense>
