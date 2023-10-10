@@ -4,16 +4,25 @@ export const theme = createTheme({
   palette: {
     primary: {
       accent: '#FC842D',
-      light: '#757ce8',
+      // light: '#757ce8',
       main: '#3f50b5',
-      dark: '#002884',
-      contrastText: '#fff',
+      // dark: '#002884',
+      // contrastText: '#fff',
     },
     secondary: {
-      light: '#ff7961',
+      // light: '#ff7961',
       main: '#f44336',
-      dark: '#ba000d',
-      contrastText: '#000',
+      // dark: '#ba000d',
+      // contrastText: '#000',
+    },
+  },
+
+  breakpoints: {
+    values: {
+      mobile: 0,
+      tablet: 768,
+      laptop: 1024,
+      desktop: 1280,
     },
   },
 });

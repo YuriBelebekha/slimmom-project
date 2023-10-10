@@ -1,17 +1,31 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import { Container } from '@mui/material';
 // import { AppBar } from '../AppBar';
 
 import { Wrapper } from './Layout.styled';
-import Container from '@mui/material/Container';
+import { theme } from '../../constants/theme';
 
 export const Layout = () => {
   return (
     <Wrapper>
       {/* <AppBar /> */}
       
-      <Container>      
+      <Container sx={{
+        [theme.breakpoints.up('mobile')]: {
+          paddingLeft: '20px',
+          paddingRight: '20px',
+        },
+        [theme.breakpoints.up('tablet')]: {
+          paddingLeft: '32px',
+          paddingRight: '32px',
+        },
+        [theme.breakpoints.up('desktop')]: {
+          paddingLeft: '16px',
+          paddingRight: '16px',
+        },
+      }}>
         <Suspense fallback={null}>
           <Outlet />
         </Suspense>

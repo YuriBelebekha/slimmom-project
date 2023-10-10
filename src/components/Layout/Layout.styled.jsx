@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
-  height: 100vh;  
+  height: 100vh;
 `;
 
 // color: ${({ theme }) => theme.palette.primary.accent};
