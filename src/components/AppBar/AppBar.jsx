@@ -13,9 +13,7 @@ export const AppBar = () => {
 
   return (
     <header>
-      <Box sx={{        
-        borderBottom: `2px solid ${theme.palette.primary.grey}`
-      }}>
+      <Box sx={{ borderBottom: `2px solid ${theme.palette.primary.grey}` }}>
         <Container sx={{
           [theme.breakpoints.up('mobile')]: {
             paddingLeft: '20px',

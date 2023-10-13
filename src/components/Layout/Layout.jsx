@@ -11,7 +11,7 @@ import { Container } from '@mui/material';
 
 export const Layout = () => {
   return (
-    <Wrapper>      
+    <Wrapper>
       <AppBar />
 
       <Container sx={{

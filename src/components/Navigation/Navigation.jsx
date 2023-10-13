@@ -1,31 +1,37 @@
 import { NavLink } from 'react-router-dom';
+import { Logo } from '../Logo';
 // import { useAuth } from 'hooks';
 
 // MUI Styles
 import { Typography } from '@mui/material';
 
 export const Navigation = () => { 
-  // const { isLoggedIn } = useAuth();  
+  // const { isLoggedIn } = useAuth();
 
   return (
-    <nav>
-      <Typography sx={{ fontSize: '14px' }}>
-        <NavLink to="/">
+    <nav style={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      fontSize: '14px',
+      textTransform: 'uppercase',
+      textDecoration: 'none',
+    }}>      
+      <NavLink to="/">
+        <Logo />
+      </NavLink>      
 
-        </NavLink>
-      </Typography>
-
-      <Typography sx={{ fontSize: '14px' }}>
-        <NavLink to="/login">
+      <NavLink to="/login">
+        <Typography>
             Log in
-        </NavLink>
-      </Typography>
+        </Typography>
+      </NavLink>
 
-      <Typography sx={{ fontSize: '14px' }}>
-        <NavLink to="/registration">
-            Registration
-        </NavLink>
-      </Typography>
+      <NavLink to="/registration">
+        <Typography>
+          Registration
+        </Typography>
+      </NavLink>
     </nav>
   );
 };
