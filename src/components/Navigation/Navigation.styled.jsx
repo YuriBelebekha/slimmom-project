@@ -6,13 +6,13 @@ import styled from '@emotion/styled';
 export const NavCss = styled.nav`
   display: flex;
   justify-content: space-between;
-  margin: 20px 0 16px;
+  padding: 20px 0 16px;
 
   ${theme.breakpoints.up('desktop')} {
     justify-content: left;
     align-items: end;
-    margin-top: 80px;
-    margin-bottom: 0;
+    padding-top: 80px;
+    padding-bottom: 0;
   };
 `;
 
