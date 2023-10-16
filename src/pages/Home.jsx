@@ -1,7 +1,7 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
-import Box from '@mui/material/Box';
-import { Typography } from '@mui/material';
+import { VisuallyHiddenH1 } from '../components/VisuallyHidden/VisuallyHidden.styled';
+import { Box } from '@mui/material';
 
 const Home = () => {
   return (
@@ -11,8 +11,8 @@ const Home = () => {
       </Helmet>
 
 
-      <Box>
-        <Typography>Some text</Typography>
+      <Box component="section">
+        <VisuallyHiddenH1 component="h1">Hero</VisuallyHiddenH1>
       </Box>
     </HelmetProvider>
   )
