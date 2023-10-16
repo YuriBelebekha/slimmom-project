@@ -7,12 +7,13 @@ const Home = () => {
   return (
     <HelmetProvider>
       <Helmet>
-        <title>Home</title>
+        <title>SlimMom | Home</title>
       </Helmet>
 
 
       <Box component="section">
         <VisuallyHiddenH1 component="h1">Hero</VisuallyHiddenH1>
+        Some text
       </Box>
     </HelmetProvider>
   )

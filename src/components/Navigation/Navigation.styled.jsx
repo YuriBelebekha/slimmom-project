@@ -41,7 +41,7 @@ export const NavLinkCss = styled(NavLink)`
   };  
   
   ${theme.breakpoints.up('desktop')} {
-    &:first-child {
+    &:first-of-type {
       margin-left: 10px;
       padding: 9px 0 3px 20px;
       border-left: 2px solid ${theme.palette.primary.grey};
