@@ -1,7 +1,8 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
-import { VisuallyHiddenH1 } from '../components/VisuallyHidden/VisuallyHidden.styled';
-import { Box } from '@mui/material';
+// import { Box } from '@mui/material';
+// import { VisuallyHiddenH1 } from '../components/VisuallyHidden/VisuallyHidden.styled';
+import { HeroForm } from '../components/HeroForm';
 
 const Home = () => {
   return (
@@ -9,12 +10,8 @@ const Home = () => {
       <Helmet>
         <title>SlimMom | Home</title>
       </Helmet>
-
-
-      <Box component="section">
-        <VisuallyHiddenH1 component="h1">Hero</VisuallyHiddenH1>
-        Some text
-      </Box>
+      
+      <HeroForm />
     </HelmetProvider>
   )
 };

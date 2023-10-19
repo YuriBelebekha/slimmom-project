@@ -10,7 +10,7 @@ export const Layout = () => {
     <Wrapper>
       <AppBar />
 
-      <ContainerCss>
+      <ContainerCss component="main">
         <Suspense fallback={null}>
           <Outlet />
         </Suspense>
