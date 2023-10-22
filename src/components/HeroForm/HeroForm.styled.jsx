@@ -3,7 +3,7 @@ import { Typography } from '@mui/material';
 import styled from '@emotion/styled';
 import { theme } from '../../constants/theme';
 
-export const TypographyCss = styled(Typography)`
+export const Title = styled(Typography)`
   max-width: 280px;
   margin-bottom: 34px;
 
@@ -24,14 +24,29 @@ export const TypographyCss = styled(Typography)`
 export const FormCss = styled(Form)`  
   display: flex;
   flex-direction: column;
-  row-gap: 32px;
   max-width: 240px;
+
+  ${theme.breakpoints.up('tablet')} {
+    max-width: 530px;
+  };
+`;
+
+export const InputWrapperCss = styled.div`
+  display: flex;
+  column-gap: 32px;
+  flex-wrap: wrap;
+`;
+
+export const InputSectionCss = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export const FieldCss = styled(Field)`
-  width: 100%;
+  width: 240px;
   padding: 4px 0;
-
+  margin-bottom: 32px;
+  
   border-top: none;
   border-left: none;
   border-bottom: 1px solid;
@@ -49,7 +64,20 @@ export const FieldCss = styled(Field)`
   &:hover,
   &:focus {
     border-color: ${theme.palette.primary.accent};
-    background: transparent;
+  };
+  
+  & ~ span {
+    position: absolute;
+    top: 0;
+    left: 0;
+  };
+
+  &:focus ~ span,
+  &:not(:focus):valid ~ span {
+    top: -16px;
+    font-size: 10px;
+    line-height: 14px;
+    color: ${theme.palette.primary.accent};
   };
 `;
 
@@ -57,6 +85,41 @@ export const ErrorMessageCss = styled(ErrorMessage)`
   
 `;
 
-export const LabelCss = styled.label`
+export const FieldsetCss = styled.fieldset`
+  border: none;
+  margin: 0;
+  padding: 0;
   
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: ${theme.palette.primary.darkGrey};  
+`;
+
+export const LabelCss = styled.label`
+  position: relative;
+
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: ${theme.palette.primary.darkGrey};  
+`;
+
+export const RadioBtnBoxCss = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  margin-bottom: 40px;
+
+  & > label {
+    display: flex;
+    align-items: center;    
+  };
+
+  & > label > span {
+    margin-left: 4px;
+  };
 `;

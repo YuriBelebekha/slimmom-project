@@ -1,8 +1,19 @@
 // import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useState } from 'react';
 import { Formik, Field } from 'formik';
 import * as yup from 'yup';
 import { Box, Button } from '@mui/material';
-import { FormCss, FieldCss, ErrorMessageCss, TypographyCss } from './HeroForm.styled';
+import {
+  FormCss,
+  FieldCss,
+  ErrorMessageCss,
+  Title,
+  InputWrapperCss,
+  InputSectionCss,
+  FieldsetCss,
+  LabelCss,
+  RadioBtnBoxCss
+} from './HeroForm.styled';
 
 const heroFormValidationSchema = yup.object().shape({
   height:
@@ -48,64 +59,136 @@ const initialValues = {
 };
 
 export const HeroForm = () => {
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
-    resetForm();
+  const [bloodType, setBloodType] = useState("1");
+  initialValues.bloodType = bloodType;  
+   
+  const handleChange = (e) => {
+    const { value } = e.currentTarget;
+    setBloodType(value);
   };
 
+  const handleSubmit = (values, { resetForm }) => {
+    console.log(values);    
+    resetForm();
+  };
+  
   return (
     <Box component="section">
-      <TypographyCss component="h1">
+      <Title component="h1">
         Calculate your daily calorie intake right now
-      </TypographyCss>
+      </Title>
 
       <Formik
         initialValues={initialValues}
         validationSchema={heroFormValidationSchema}
         onSubmit={handleSubmit}
       >
-        <FormCss>
-          <label htmlFor="height">
-            <FieldCss type="number" name="height" placeholder="Height *" />
-            <ErrorMessageCss component="div" name="height" />
-          </label>
-          
-          <label htmlFor="age">
-            <FieldCss type="number" name="age" placeholder="Age *" />
-            <ErrorMessageCss component="div" name="age" />
-          </label>
+        <FormCss autoComplete='off'>
+          <InputWrapperCss>
+            <InputSectionCss>
+              <LabelCss htmlFor="height">
+                <FieldCss
+                  type="number"
+                  min="120"
+                  max="220"
+                  name="height"
+                  required
+                />
+                <span>Height *</span>
+                <ErrorMessageCss component="div" name="height" />
+              </LabelCss>
+              
+              <LabelCss htmlFor="age">
+                <FieldCss
+                  type="number"
+                  min="18"
+                  max="70"
+                  name="age"
+                  required
+                />
+                <span>Age *</span>
+                <ErrorMessageCss component="div" name="age" />
+              </LabelCss>
 
-          <label htmlFor="currentWeight">
-            <FieldCss type="number" name="currentWeight"  placeholder="Current weight *" />
-            <ErrorMessageCss component="div" name="currentWeight" />
-          </label>
+              <LabelCss htmlFor="currentWeight">
+                <FieldCss
+                  type="number"
+                  min="35"
+                  max="180"
+                  name="currentWeight"
+                  required
+                />
+                <span>Current weight *</span>
+                <ErrorMessageCss component="div" name="currentWeight" />
+              </LabelCss>
+            </InputSectionCss>
 
-          <label htmlFor="desiredWeight">
-            <FieldCss type="number" name="desiredWeight" placeholder="Desired weight *" />
-            <ErrorMessageCss component="div" name="desiredWeight" />
-          </label>
+            <InputSectionCss>
+              <LabelCss htmlFor="desiredWeight">
+                <FieldCss
+                  type="number"
+                  min="35"
+                  max="180"
+                  name="desiredWeight"
+                  required
+                />
+                <span>Desired weight *</span>
+                <ErrorMessageCss component="div" name="desiredWeight" />
+              </LabelCss>            
 
-          <fieldset>
-            <legend>Blood type *</legend>
+              <FieldsetCss>
+                <legend>Blood type *</legend>
 
-            <label htmlFor="1">
-              <Field type="radio" value="1" name="bloodType" />1
-            </label>
+                <RadioBtnBoxCss>
+                  <label htmlFor="1">
+                    <Field
+                      type="radio"
+                      value="1"
+                      name="bloodType"
+                      onChange={handleChange}
+                      checked={initialValues.bloodType === '1'}
+                    />
+                    <span>1</span>
+                  </label>
 
-            <label htmlFor="2">
-              <Field type="radio" value="2" name="bloodType" />2
-            </label>
+                  <label htmlFor="2">
+                    <Field
+                      type="radio"
+                      value="2"
+                      name="bloodType"
+                      onChange={handleChange}
+                      checked={initialValues.bloodType === '2'}
+                    />
+                    <span>2</span>
+                  </label>
 
-            <label htmlFor="3">
-              <Field type="radio" value="3" name="bloodType" />3
-            </label>
-            
-            <label htmlFor="4">
-              <Field type="radio" value="4" name="bloodType" />4
-            </label>
-
-            <ErrorMessageCss component="div" name="bloodType" />
-          </fieldset>
+                  <label htmlFor="3">
+                    <Field
+                      type="radio"
+                      value="3"
+                      name="bloodType"
+                      onChange={handleChange}
+                      checked={initialValues.bloodType === '3'}
+                    />
+                    <span>3</span>
+                  </label>
+                  
+                  <label htmlFor="4">
+                    <Field
+                      type="radio"
+                      value="4"
+                      name="bloodType"
+                      onChange={handleChange}
+                      checked={initialValues.bloodType === '4'}
+                    />
+                    <span>4</span>
+                  </label>
+                </RadioBtnBoxCss>
+                
+                <ErrorMessageCss component="div" name="bloodType" />  
+              </FieldsetCss>
+            </InputSectionCss>
+          </InputWrapperCss>
           
           <Button type="submit">
             Start losing weight
