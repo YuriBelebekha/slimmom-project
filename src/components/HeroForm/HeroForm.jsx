@@ -1,6 +1,4 @@
-// import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useState } from 'react';
-import { Formik, Field } from 'formik';
+import { Formik } from 'formik';
 import * as yup from 'yup';
 import { Box, Button } from '@mui/material';
 import {
@@ -12,7 +10,8 @@ import {
   InputSectionCss,
   FieldsetCss,
   LabelCss,
-  RadioBtnBoxCss
+  RadioBtnBoxCss,
+  RadioBtnCss
 } from './HeroForm.styled';
 
 const heroFormValidationSchema = yup.object().shape({
@@ -55,20 +54,12 @@ const initialValues = {
   age: '',
   currentWeight: '',
   desiredWeight: '',
-  bloodType: '',
+  bloodType: '1',
 };
 
 export const HeroForm = () => {
-  const [bloodType, setBloodType] = useState("1");
-  initialValues.bloodType = bloodType;  
-   
-  const handleChange = (e) => {
-    const { value } = e.currentTarget;
-    setBloodType(value);
-  };
-
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);    
+    console.log(values);
     resetForm();
   };
   
@@ -141,45 +132,37 @@ export const HeroForm = () => {
 
                 <RadioBtnBoxCss>
                   <label htmlFor="1">
-                    <Field
+                    <RadioBtnCss
                       type="radio"
                       value="1"
                       name="bloodType"
-                      onChange={handleChange}
-                      checked={initialValues.bloodType === '1'}
                     />
                     <span>1</span>
                   </label>
 
                   <label htmlFor="2">
-                    <Field
+                    <RadioBtnCss
                       type="radio"
                       value="2"
                       name="bloodType"
-                      onChange={handleChange}
-                      checked={initialValues.bloodType === '2'}
                     />
                     <span>2</span>
                   </label>
 
                   <label htmlFor="3">
-                    <Field
+                    <RadioBtnCss
                       type="radio"
                       value="3"
                       name="bloodType"
-                      onChange={handleChange}
-                      checked={initialValues.bloodType === '3'}
                     />
                     <span>3</span>
                   </label>
                   
                   <label htmlFor="4">
-                    <Field
+                    <RadioBtnCss
                       type="radio"
                       value="4"
                       name="bloodType"
-                      onChange={handleChange}
-                      checked={initialValues.bloodType === '4'}
                     />
                     <span>4</span>
                   </label>

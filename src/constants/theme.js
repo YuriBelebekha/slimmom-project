@@ -8,6 +8,8 @@ export const theme = createTheme({
       grey: '#E0E0E0',
       lightGrey: '#F0F1F3',
       darkGrey: '#9B9FAA',
+      white: '#FFFFFF',
+      errorMessage: '#FF0000',
       // light: '#757ce8',
       // contrastText: '#fff',
     },

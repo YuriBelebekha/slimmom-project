@@ -51,7 +51,7 @@ export const FieldCss = styled(Field)`
   border-left: none;
   border-bottom: 1px solid;
   border-right: none;
-  border-color: ${theme.palette.primary.darkGrey};
+  border-color: ${theme.palette.primary.grey};
   outline: none;  
 
   font-size: 14px;
@@ -82,7 +82,13 @@ export const FieldCss = styled(Field)`
 `;
 
 export const ErrorMessageCss = styled(ErrorMessage)`
-  
+  position: absolute;
+  top: 30px;
+  left: 0;
+  max-width: 240px;
+  font-size: 10px;
+  line-height: 14px;
+  color: ${theme.palette.primary.errorMessage};
 `;
 
 export const FieldsetCss = styled.fieldset`
@@ -121,5 +127,27 @@ export const RadioBtnBoxCss = styled.div`
 
   & > label > span {
     margin-left: 4px;
+  };
+
+  ${theme.breakpoints.up('tablet')} {
+    padding-top: 8px;
+    border-top: 1px solid ${theme.palette.primary.grey};
+  };
+`;
+
+export const RadioBtnCss = styled(Field)`
+  width: 20px;
+  height: 20px;
+
+  &:checked {
+    appearance: none;
+    border: 5px solid ${theme.palette.primary.white};
+    border-radius: 50%;
+    box-shadow: ${theme.palette.primary.darkGrey} 0 0 0 1px;
+    background: ${theme.palette.primary.accent};
+
+    & ~ span {
+      color: ${theme.palette.primary.accent};
+    };
   };
 `;
