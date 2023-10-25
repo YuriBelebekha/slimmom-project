@@ -24,10 +24,17 @@ export const Title = styled(Typography)`
 export const FormCss = styled(Form)`  
   display: flex;
   flex-direction: column;
+  align-items: center;
   max-width: 240px;
 
   ${theme.breakpoints.up('tablet')} {
     max-width: 530px;
+    align-items: start;
+  };
+
+  ${theme.breakpoints.up('desktop')} {
+    max-width: 530px;
+    align-items: end;
   };
 `;
 
@@ -35,6 +42,11 @@ export const InputWrapperCss = styled.div`
   display: flex;
   column-gap: 32px;
   flex-wrap: wrap;
+  margin-bottom: 8px;
+
+  ${theme.breakpoints.up('tablet')} {
+    margin-bottom: 28px;
+  };
 `;
 
 export const InputSectionCss = styled.div`
@@ -86,8 +98,8 @@ export const ErrorMessageCss = styled(ErrorMessage)`
   top: 30px;
   left: 0;
   max-width: 240px;
-  font-size: 10px;
-  line-height: 14px;
+  font-size: 7px;
+  line-height: 10px;
   color: ${theme.palette.primary.errorMessage};
 `;
 

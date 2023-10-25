@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import {
   FormCss,
   FieldCss,
@@ -13,6 +13,7 @@ import {
   RadioBtnBoxCss,
   RadioBtnCss
 } from './HeroForm.styled';
+import { ButtonSubmit } from '../ButtonSubmit/ButtonSubmit';
 
 const heroFormValidationSchema = yup.object().shape({
   height:
@@ -173,9 +174,7 @@ export const HeroForm = () => {
             </InputSectionCss>
           </InputWrapperCss>
           
-          <Button type="submit">
-            Start losing weight
-          </Button>
+          <ButtonSubmit name="Start losing weight" />
         </FormCss>
       </Formik>
     </Box>
