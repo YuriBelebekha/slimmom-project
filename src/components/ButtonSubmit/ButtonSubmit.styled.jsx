@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 import { theme } from '../../constants/theme';
 
 export const ButtonCss = styled(Button)`
-  max-width: 210px;
-  padding: 13px 20px;
+  min-width: 180px;
+  padding: 13px 22px;
 
   font-family: verdanaBold;
   font-size: 14px;
