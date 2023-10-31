@@ -58,6 +58,8 @@ export const FieldCss = styled(Field)`
   width: 240px;
   padding: 4px 0;
   margin-bottom: 32px;
+
+  background-color: transparent;
   
   border-top: none;
   border-left: none;

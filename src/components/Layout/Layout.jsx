@@ -9,8 +9,6 @@ import { Wrapper, ContainerCss } from './Layout.styled';
 export const Layout = () => {
   return (
     <Wrapper>
-      <BackgroundImages />
-
       <AppBar />
 
       <ContainerCss component="main">
@@ -20,6 +18,8 @@ export const Layout = () => {
 
         <ToastContainer />
       </ContainerCss>
+      
+      <BackgroundImages />
     </Wrapper>
   );
 };

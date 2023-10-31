@@ -3,17 +3,16 @@ import { Container } from '@mui/material';
 import { theme } from '../../constants/theme';
 
 export const Wrapper = styled.div`
-  height: 100vh;
+  min-height: 100vh;
 `;
-// color: ${({ theme }) => theme.palette.primary.accent};
 
-export const ContainerCss = styled(Container)`
+export const ContainerCss = styled(Container)`  
   ${theme.breakpoints.up('mobile')} {
     padding: 32px 20px 100px;
   };
 
   ${theme.breakpoints.up('tablet')} {
-    padding: 100px 32px 110px;
+    padding: 100px 32px 100px;
   };
 
   ${theme.breakpoints.up('desktop')} {
