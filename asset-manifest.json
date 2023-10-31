@@ -1,32 +1,43 @@
 {
   "files": {
     "main.css": "/slimmom-project/static/css/main.d244dc48.css",
-    "main.js": "/slimmom-project/static/js/main.bb9689f5.js",
-    "static/js/703.7b622125.chunk.js": "/slimmom-project/static/js/703.7b622125.chunk.js",
+    "main.js": "/slimmom-project/static/js/main.54cb21f5.js",
+    "static/js/703.e3017ab5.chunk.js": "/slimmom-project/static/js/703.e3017ab5.chunk.js",
     "static/js/73.2b44a433.chunk.js": "/slimmom-project/static/js/73.2b44a433.chunk.js",
     "static/media/bg-img-strawberry-desktop@3x.png": "/slimmom-project/static/media/bg-img-strawberry-desktop@3x.d746fb5a7293b221f00b.png",
+    "static/media/bg-img-strawberry-tablet@3x.png": "/slimmom-project/static/media/bg-img-strawberry-tablet@3x.6b3df5981f2e263b021b.png",
     "static/media/bg-img-banana-desktop@3x.png": "/slimmom-project/static/media/bg-img-banana-desktop@3x.205471b50500c43fb791.png",
+    "static/media/bg-img-banana-tablet@3x.png": "/slimmom-project/static/media/bg-img-banana-tablet@3x.9ad933d07b2c382d74ea.png",
     "static/media/bg-img-strawberry-desktop@2x.png": "/slimmom-project/static/media/bg-img-strawberry-desktop@2x.bb4fe15573eb769f0062.png",
     "static/media/bg-img-banana-desktop@2x.png": "/slimmom-project/static/media/bg-img-banana-desktop@2x.123844449de52b336e5c.png",
     "static/media/bg-img-leaves-desktop@3x.png": "/slimmom-project/static/media/bg-img-leaves-desktop@3x.88ab1078c3bde57c706c.png",
+    "static/media/bg-img-banana-tablet@2x.png": "/slimmom-project/static/media/bg-img-banana-tablet@2x.83cfc4e5c352b0ecdcb0.png",
+    "static/media/bg-img-strawberry-tablet@2x.png": "/slimmom-project/static/media/bg-img-strawberry-tablet@2x.62ac16a052415cb117d9.png",
+    "static/media/bg-img-leaves-tablet@3x.png": "/slimmom-project/static/media/bg-img-leaves-tablet@3x.7c3d7660b2131f8773df.png",
     "static/media/bg-img-leaves-desktop@2x.png": "/slimmom-project/static/media/bg-img-leaves-desktop@2x.a3d60ba3cf2adb2a1c06.png",
     "static/media/Verdana-Regular.ttf": "/slimmom-project/static/media/Verdana-Regular.c0e9183897f25e2f42ab.ttf",
     "static/media/bg-img-strawberry-desktop.png": "/slimmom-project/static/media/bg-img-strawberry-desktop.710d7026c4b284b6be95.png",
+    "static/media/bg-img-leaves-tablet@2x.png": "/slimmom-project/static/media/bg-img-leaves-tablet@2x.f4006af2eb9e77bc5357.png",
     "static/media/Verdana-Bold.ttf": "/slimmom-project/static/media/Verdana-Bold.8aec3990e9cd04b52419.ttf",
     "static/media/bg-img-banana-desktop.png": "/slimmom-project/static/media/bg-img-banana-desktop.2da01581a1ed4f4189b1.png",
+    "static/media/bg-img-banana-tablet.png": "/slimmom-project/static/media/bg-img-banana-tablet.fd46f50bbb046bbc1dd3.png",
+    "static/media/bg-img-strawberry-tablet.png": "/slimmom-project/static/media/bg-img-strawberry-tablet.e9570bd0e5d3965cfb8e.png",
     "static/media/bg-img-leaves-desktop.png": "/slimmom-project/static/media/bg-img-leaves-desktop.6594c140e7b671a5a24c.png",
     "static/media/slimmom-logo.svg": "/slimmom-project/static/media/slimmom-logo.a4f472891a04998b3d3ec66787854190.svg",
+    "static/media/bg-img-leaves-tablet.png": "/slimmom-project/static/media/bg-img-leaves-tablet.d487383fc8f64fe776c2.png",
     "static/media/bg-img-gray-shape-desktop@3x.png": "/slimmom-project/static/media/bg-img-gray-shape-desktop@3x.133bad64240160ea47fd.png",
+    "static/media/bg-img-gray-shape-tablet@3x.png": "/slimmom-project/static/media/bg-img-gray-shape-tablet@3x.4e716e4736c4519bf599.png",
     "static/media/bg-img-gray-shape-desktop@2x.png": "/slimmom-project/static/media/bg-img-gray-shape-desktop@2x.d2cb43d0fdf60e0e0b8b.png",
+    "static/media/bg-img-gray-shape-tablet@2x.png": "/slimmom-project/static/media/bg-img-gray-shape-tablet@2x.889e3a64552804317009.png",
     "static/media/slimmom-logo-text.svg": "/slimmom-project/static/media/slimmom-logo-text.b53f63a61d8c39fce15e366276917e7d.svg",
     "index.html": "/slimmom-project/index.html",
     "main.d244dc48.css.map": "/slimmom-project/static/css/main.d244dc48.css.map",
-    "main.bb9689f5.js.map": "/slimmom-project/static/js/main.bb9689f5.js.map",
-    "703.7b622125.chunk.js.map": "/slimmom-project/static/js/703.7b622125.chunk.js.map",
+    "main.54cb21f5.js.map": "/slimmom-project/static/js/main.54cb21f5.js.map",
+    "703.e3017ab5.chunk.js.map": "/slimmom-project/static/js/703.e3017ab5.chunk.js.map",
     "73.2b44a433.chunk.js.map": "/slimmom-project/static/js/73.2b44a433.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d244dc48.css",
-    "static/js/main.bb9689f5.js"
+    "static/js/main.54cb21f5.js"
   ]
 }
