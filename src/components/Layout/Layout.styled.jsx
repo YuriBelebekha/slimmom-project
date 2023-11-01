@@ -3,7 +3,15 @@ import { Container } from '@mui/material';
 import { theme } from '../../constants/theme';
 
 export const Wrapper = styled.div`
-  min-height: 100vh;
+  position: relative;
+
+  ${theme.breakpoints.up('tablet')} {
+    min-height: 1024px;
+  };
+
+  ${theme.breakpoints.up('desktop')} {
+    min-height: 850px;
+  };  
 `;
 
 export const ContainerCss = styled(Container)`  
