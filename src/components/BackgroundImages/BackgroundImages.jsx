@@ -1,4 +1,3 @@
-// import { ImageList, ImageListItem } from '@mui/material';
 import {
   ImageListDesktopCss, ImageListItemDesktopCss,
   ImageListTabletCss, ImageListItemTabletCss,
@@ -54,7 +53,6 @@ const itemData = [
   },  
 ];
 
-// sx={{ width: 650, height: 180 }} cols={4} rowHeight={180}
 export const BackgroundImages = () => {
   return (
     <>  
@@ -90,22 +88,3 @@ export const BackgroundImages = () => {
     </>  
   );
 };
-
-// export const BackgroundImages = () => {
-//   return (
-//     <ImageList >
-//       {itemData.map((item) => {
-//         return (
-//           <ImageListItem key={item.img}>
-//             <img
-//               srcSet={`${item.img2x} 2x, ${item.img3x} 3x`}
-//               src={`${item.img}`}
-//               alt={item.title}
-//               loading="lazy"
-//             />
-//           </ImageListItem>
-//         )
-//       })}
-//     </ImageList>
-//   );
-// };

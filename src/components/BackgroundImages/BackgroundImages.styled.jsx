@@ -2,6 +2,8 @@ import { ImageList, ImageListItem } from '@mui/material';
 import styled from '@emotion/styled';
 import { theme } from '../../constants/theme';
 
+import 'animate.css';
+
 // tablet
 export const ImageListTabletCss = styled(ImageList)`
   display: none;
@@ -26,6 +28,9 @@ export const ImageListItemTabletCss = styled(ImageListItem)`
       right: 0;
       bottom: 0;
       z-index: -1;
+
+      animation: fadeInRight;
+      animation-duration: 3s;
     };
 
     &:nth-child(2) {      
@@ -34,6 +39,9 @@ export const ImageListItemTabletCss = styled(ImageListItem)`
       right: 38px;
       bottom: 158px;
       z-index: -1;
+
+      animation: fadeInDownBig;
+      animation-duration: 2s;
     };
 
     &:nth-child(3) {      
@@ -42,6 +50,9 @@ export const ImageListItemTabletCss = styled(ImageListItem)`
       left: 0;
       bottom: 0;
       z-index: -2;
+
+      animation: rotateIn;
+      animation-duration: 4s;
     };
 
     &:nth-child(4) {
@@ -50,6 +61,9 @@ export const ImageListItemTabletCss = styled(ImageListItem)`
       right: 0;
       bottom: 0;
       z-index: -3;
+
+      animation: fadeInUpBig;
+      animation-duration: 1s;
     };
   };
 `;
@@ -74,6 +88,9 @@ export const ImageListItemDesktopCss = styled(ImageListItem)`
       top: 0;
       right: 0;
       z-index: -1;
+
+      animation: fadeInRight;
+      animation-duration: 3s;
     };
 
     &:nth-child(2) {      
@@ -82,6 +99,9 @@ export const ImageListItemDesktopCss = styled(ImageListItem)`
       right: 0;
       bottom: 0;
       z-index: -1;
+
+      animation: fadeInDownBig;
+      animation-duration: 2s;
     };
 
     &:nth-child(3) {      
@@ -90,6 +110,9 @@ export const ImageListItemDesktopCss = styled(ImageListItem)`
       top: 0;
       right: 195px;
       z-index: -1;
+
+      animation: rotateIn;
+      animation-duration: 4s;
     };
 
     &:nth-child(4) {
@@ -98,6 +121,9 @@ export const ImageListItemDesktopCss = styled(ImageListItem)`
       right: 0;
       bottom: 0;
       z-index: -3;
+
+      animation: fadeInUpBig;
+      animation-duration: 1s;
     };
   };
 `;
