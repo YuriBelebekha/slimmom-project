@@ -124,7 +124,7 @@ export const LabelCss = styled.label`
   font-weight: 700;
   line-height: 17px;
   letter-spacing: 0.04em;
-  color: ${theme.palette.primary.darkGrey};  
+  color: ${theme.palette.primary.darkGrey};
 `;
 
 export const RadioBtnBoxCss = styled.div`
