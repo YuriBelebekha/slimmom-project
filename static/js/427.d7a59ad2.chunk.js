@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkslimmom_project=self.webpackChunkslimmom_project||[]).push([[427],{7427:function(e,i,l){l.r(i);var n=l(6907),c=l(184);i.default=function(){return(0,c.jsx)(n.B6,{children:(0,c.jsx)(n.ql,{children:(0,c.jsx)("title",{children:"SlimMom | Login"})})})}}}]);
-//# sourceMappingURL=427.d7a59ad2.chunk.js.map
