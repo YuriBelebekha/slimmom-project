@@ -34,6 +34,10 @@ export const NavLinkCss = styled(NavLink)`
     margin-left: 14px;
   };
 
+  &.active {
+    color: ${theme.palette.primary.main};
+  };
+
   ${theme.breakpoints.up('tablet')} {
     &:last-child {
       margin-left: 24px;

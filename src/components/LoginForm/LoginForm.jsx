@@ -10,6 +10,7 @@ import {
   LabelCss,
 } from './LoginForm.styled';
 import { ButtonSubmit } from '../ButtonSubmit/ButtonSubmit';
+import { Button } from '../Button/Button';
 
 const loginFormValidationSchema = yup.object().shape({
   email:
@@ -71,6 +72,8 @@ export const LoginForm = () => {
           </InputWrapperCss>
 
           <ButtonSubmit name="Log In" />
+
+          <Button name="Register" />
         </FormCss>
       </Formik>
     </Box>

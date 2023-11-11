@@ -1,9 +1,9 @@
-import { ButtonCss } from './ButtonSubmit.styled';
+import { ButtonSubmitCss } from './ButtonSubmit.styled';
 
 export const ButtonSubmit = ({ name }) => {  
   return (
-    <ButtonCss type="submit" variant="contained" >
+    <ButtonSubmitCss type="submit" variant="contained" >
       {name}
-    </ButtonCss>
+    </ButtonSubmitCss>
   )
 };

@@ -4,30 +4,39 @@ import { Typography } from '@mui/material';
 import { theme } from '../../constants/theme';
 
 export const Title = styled(Typography)`
-  
+  text-align: center;
+  margin-bottom: 55px;
+
+  font-family: VerdanaBold;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: ${theme.palette.primary.accent};
 
   ${theme.breakpoints.up('tablet')} {
-    
+    text-align: left;
   };
 `;
 
-export const FormCss = styled(Form)`  
-  
+export const FormCss = styled(Form)`
+  text-align: center;
 
   ${theme.breakpoints.up('tablet')} {
-    
-  };
-
-  ${theme.breakpoints.up('desktop')} {
-    
+    text-align: left;
   };
 `;
 
 export const InputWrapperCss = styled.div`
-  
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 28px;
+
+  align-items: center;
 
   ${theme.breakpoints.up('tablet')} {
-    
+    align-items: start;
   };
 `;
 

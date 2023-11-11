@@ -2,9 +2,9 @@ import { Button } from '@mui/material';
 import styled from '@emotion/styled';
 import { theme } from '../../constants/theme';
 
-export const ButtonCss = styled(Button)`
+export const ButtonSubmitCss = styled(Button)`
   min-width: 180px;
-  padding: 13px 22px;
+  padding: 13px 22px;  
 
   font-family: verdanaBold;
   font-size: 14px;
@@ -16,7 +16,6 @@ export const ButtonCss = styled(Button)`
   background-color: ${({ theme }) => theme.palette.primary.accent};
   border-radius: 30px;
   box-shadow: 0px 4px 10px 0px ${theme.palette.primary.accent};
-
 
   &:hover,
   &:focus {
