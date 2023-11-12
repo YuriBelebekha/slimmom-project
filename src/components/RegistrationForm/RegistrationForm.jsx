@@ -9,11 +9,17 @@ import {
   Title,
   InputWrapperCss,
   LabelCss,
-} from './LoginForm.styled';
+} from './RegistrationForm.styled';
 import { ButtonSubmit } from '../ButtonSubmit/ButtonSubmit';
 import { Button } from '../Button/Button';
 
-const loginFormValidationSchema = yup.object().shape({
+const registrationFormValidationSchema = yup.object().shape({
+  name:
+    yup
+      .string()
+      .min(1, 'Must be at least 1 characters long')
+      .max(30, 'Must contain no more than 30 characters')
+      .required('Entering this value is required'),
   email:
     yup
       .string()
@@ -28,11 +34,12 @@ const loginFormValidationSchema = yup.object().shape({
 });
 
 const initialValues = {
+  name: '',
   email: '',
   password: '',
 };
 
-export const LoginForm = () => {
+export const RegistrationForm = () => {
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
     resetForm();
@@ -41,16 +48,26 @@ export const LoginForm = () => {
   return (
     <Box component="section">
       <Title component="h1">
-        Log In
+        Registration
       </Title>
 
       <Formik
         initialValues={initialValues}
-        validationSchema={loginFormValidationSchema}
+        validationSchema={registrationFormValidationSchema}
         onSubmit={handleSubmit}
       >
         <FormCss autoComplete='off'>
           <InputWrapperCss>
+            <LabelCss htmlFor="name">
+                <FieldCss
+                  type="name"
+                  name="name"
+                  required
+                />
+                <span>Name *</span>
+                <ErrorMessageCss component="div" name="name" />
+            </LabelCss>
+
             <LabelCss htmlFor="email">
                 <FieldCss
                   type="email"
@@ -72,10 +89,10 @@ export const LoginForm = () => {
             </LabelCss>
           </InputWrapperCss>
 
-          <ButtonSubmit name="Log In" />
+          <ButtonSubmit name="Registration" />
 
-          <NavLink to="/registration">
-            <Button name="Register" />
+          <NavLink to="/login">
+            <Button name="Log In" />
           </NavLink>
         </FormCss>
       </Formik>
