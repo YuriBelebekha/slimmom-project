@@ -14,7 +14,7 @@ import { ButtonSubmit } from '../ButtonSubmit/ButtonSubmit';
 import { Button } from '../Button/Button';
 
 const registrationFormValidationSchema = yup.object().shape({
-  name:
+  username:
     yup
       .string()
       .min(1, 'Must be at least 1 characters long')
@@ -34,7 +34,7 @@ const registrationFormValidationSchema = yup.object().shape({
 });
 
 const initialValues = {
-  name: '',
+  username: '',
   email: '',
   password: '',
 };
@@ -58,14 +58,14 @@ export const RegistrationForm = () => {
       >
         <FormCss autoComplete='off'>
           <InputWrapperCss>
-            <LabelCss htmlFor="name">
+            <LabelCss htmlFor="username">
                 <FieldCss
-                  type="name"
-                  name="name"
+                  type="username"
+                  name="username"
                   required
                 />
                 <span>Name *</span>
-                <ErrorMessageCss component="div" name="name" />
+                <ErrorMessageCss component="div" name="username" />
             </LabelCss>
 
             <LabelCss htmlFor="email">
