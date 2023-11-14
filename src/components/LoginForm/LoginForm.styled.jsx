@@ -58,6 +58,10 @@ export const TextFieldCss = styled(TextField)`
     letter-spacing: 0.04em;
     background: transparent;
   };
+
+  ${theme.breakpoints.up('tablet')} {
+    width: 240px;
+  };
 `;
 
 export const ButtonsBoxCss = styled(Box)`
