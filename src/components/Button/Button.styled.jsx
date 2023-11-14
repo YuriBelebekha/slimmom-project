@@ -4,7 +4,7 @@ import { theme } from '../../constants/theme';
 
 export const ButtonCss = styled(Button)`
   min-width: 180px;
-  padding: 13px 22px;
+  padding: 11px 22px;
   margin-top: 20px;
 
   font-family: verdanaBold;

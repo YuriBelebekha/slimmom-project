@@ -1,14 +1,12 @@
 import { NavLink } from 'react-router-dom';
-import { Formik } from 'formik';
+import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { Box } from '@mui/material';
 import {
+  TitleCss,
   FormCss,
-  FieldCss,
-  ErrorMessageCss,
-  Title,
-  InputWrapperCss,
-  LabelCss,
+  TextFieldCss,
+  ButtonsBoxCss,
 } from './LoginForm.styled';
 import { ButtonSubmit } from '../ButtonSubmit/ButtonSubmit';
 import { Button } from '../Button/Button';
@@ -16,69 +14,69 @@ import { Button } from '../Button/Button';
 const loginFormValidationSchema = yup.object().shape({
   email:
     yup
-      .string()
-      .email('Must be a valid email')
-      .required('Entering this value is required'),
+      .string('Enter your email')
+      .email('Enter a valid email')
+      .required('Email is required'),
   password:
     yup
-      .string()
-      .min(8, 'Must be at least 8 characters long')
-      .max(30, 'Must contain no more than 30 characters')
-      .required('Entering this value is required'),
+      .string('Enter your password')
+      .min(8, 'Password should be of minimum 8 characters length')
+      .required('Password is required'),
 });
 
-const initialValues = {
-  email: '',
-  password: '',
-};
-
 export const LoginForm = () => {
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
-    resetForm();
-  };
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    validationSchema: loginFormValidationSchema,
+    onSubmit: (values, { resetForm }) => {
+      console.log(values);
+      resetForm();
+    },
+  });
 
   return (
     <Box component="section">
-      <Title component="h1">
+      <TitleCss component="h1">
         Log In
-      </Title>
+      </TitleCss>
 
-      <Formik
-        initialValues={initialValues}
-        validationSchema={loginFormValidationSchema}
-        onSubmit={handleSubmit}
-      >
-        <FormCss autoComplete='off'>
-          <InputWrapperCss>
-            <LabelCss htmlFor="email">
-                <FieldCss
-                  type="email"
-                  name="email"
-                  required
-                />
-                <span>Email *</span>
-                <ErrorMessageCss component="div" name="email" />
-            </LabelCss>
-            
-            <LabelCss htmlFor="password">
-              <FieldCss
-                type="text"
-                name="password"
-                required
-              />
-              <span>Password *</span>
-              <ErrorMessageCss component="div" name="password" />
-            </LabelCss>
-          </InputWrapperCss>
+      <FormCss onSubmit={formik.handleSubmit}>
+        <TextFieldCss
+          variant="standard"
+          id="email"
+          name="email"
+          label="Email *"
+          value={formik.values.email}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.touched.email && Boolean(formik.errors.email)}
+          helperText={formik.touched.email && formik.errors.email}
+        />
+        
+        <TextFieldCss
+          variant="standard"
+          id="password"
+          name="password"
+          label="Password *"
+          type="password"
+          value={formik.values.password}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.touched.password && Boolean(formik.errors.password)}
+          helperText={formik.touched.password && formik.errors.password}
+        />          
 
+        <ButtonsBoxCss>
           <ButtonSubmit name="Log In" />
 
           <NavLink to="/registration">
             <Button name="Register" />
           </NavLink>
-        </FormCss>
-      </Formik>
+        </ButtonsBoxCss>
+      </FormCss>
     </Box>
   )
 };
