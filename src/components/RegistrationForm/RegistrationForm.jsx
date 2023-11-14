@@ -1,14 +1,12 @@
 import { NavLink } from 'react-router-dom';
-import { Formik } from 'formik';
+import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { Box } from '@mui/material';
 import {
+  TitleCss,
   FormCss,
-  FieldCss,
-  ErrorMessageCss,
-  Title,
-  InputWrapperCss,
-  LabelCss,
+  TextFieldCss,
+  ButtonsBoxCss,
 } from './RegistrationForm.styled';
 import { ButtonSubmit } from '../ButtonSubmit/ButtonSubmit';
 import { Button } from '../Button/Button';
@@ -16,86 +14,90 @@ import { Button } from '../Button/Button';
 const registrationFormValidationSchema = yup.object().shape({
   username:
     yup
-      .string()
-      .min(1, 'Must be at least 1 characters long')
+      .string('Enter your name')
+      .min(1, 'Password should be of minimum 1 characters length')
       .max(30, 'Must contain no more than 30 characters')
-      .required('Entering this value is required'),
+      .required('Name is required'),
   email:
     yup
-      .string()
-      .email('Must be a valid email')
-      .required('Entering this value is required'),
+      .string('Enter your email')
+      .email('Enter a valid email')
+      .required('Email is required'),
   password:
     yup
-      .string()
-      .min(8, 'Must be at least 8 characters long')
+      .string('Enter your password')
+      .min(8, 'Password should be of minimum 8 characters length')
       .max(30, 'Must contain no more than 30 characters')
-      .required('Entering this value is required'),
+      .required('Password is required'),
 });
 
-const initialValues = {
-  username: '',
-  email: '',
-  password: '',
-};
-
 export const RegistrationForm = () => {
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
-    resetForm();
-  };
+  const formik = useFormik({
+    initialValues: {
+      username: '',
+      email: '',
+      password: '',
+    },
+    validationSchema: registrationFormValidationSchema,
+    onSubmit: (values, { resetForm }) => {
+      console.log(values);
+      resetForm();
+    },
+  });
 
   return (
     <Box component="section">
-      <Title component="h1">
+      <TitleCss component="h1">
         Registration
-      </Title>
+      </TitleCss>
 
-      <Formik
-        initialValues={initialValues}
-        validationSchema={registrationFormValidationSchema}
-        onSubmit={handleSubmit}
-      >
-        <FormCss autoComplete='off'>
-          <InputWrapperCss>
-            <LabelCss htmlFor="username">
-                <FieldCss
-                  type="username"
-                  name="username"
-                  required
-                />
-                <span>Name *</span>
-                <ErrorMessageCss component="div" name="username" />
-            </LabelCss>
+      <FormCss onSubmit={formik.handleSubmit}>
+        <TextFieldCss
+          variant="standard"
+          id="username"
+          name="username"
+          label="Name *"
+          type="text"
+          value={formik.values.username}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.touched.username && Boolean(formik.errors.username)}
+          helperText={formik.touched.username && formik.errors.username}
+        />
+        
+        <TextFieldCss
+          variant="standard"
+          id="email"
+          name="email"
+          label="Email *"
+          value={formik.values.email}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.touched.email && Boolean(formik.errors.email)}
+          helperText={formik.touched.email && formik.errors.email}
+        />
+        
+        <TextFieldCss
+          variant="standard"
+          id="password"
+          name="password"
+          label="Password *"
+          type="password"
+          value={formik.values.password}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.touched.password && Boolean(formik.errors.password)}
+          helperText={formik.touched.password && formik.errors.password}
+        />
 
-            <LabelCss htmlFor="email">
-                <FieldCss
-                  type="email"
-                  name="email"
-                  required
-                />
-                <span>Email *</span>
-                <ErrorMessageCss component="div" name="email" />
-            </LabelCss>
-            
-            <LabelCss htmlFor="password">
-              <FieldCss
-                type="text"
-                name="password"
-                required
-              />
-              <span>Password *</span>
-              <ErrorMessageCss component="div" name="password" />
-            </LabelCss>
-          </InputWrapperCss>
-
+        <ButtonsBoxCss>
           <ButtonSubmit name="Registration" />
-
+          
           <NavLink to="/login">
-            <Button name="Log In" />
-          </NavLink>
-        </FormCss>
-      </Formik>
+            <Button name="Log in" />
+          </NavLink>          
+        </ButtonsBoxCss>
+      </FormCss>
     </Box>
   )
 };
