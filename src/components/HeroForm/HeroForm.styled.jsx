@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
-import { Box, Typography, TextField } from '@mui/material';
+import { Box, Typography, TextField, FormControl } from '@mui/material';
 import { theme } from '../../constants/theme';
 
 export const SectionCss = styled(Box)`
-  max-width: 240px;
+  max-width: 280px;
 
   ${theme.breakpoints.up('tablet')} {
     max-width: 530px;
@@ -13,6 +13,7 @@ export const SectionCss = styled(Box)`
 export const TitleCss = styled(Typography)`
   text-align: center;
   margin-bottom: 55px;
+  text-align: left;
 
   font-family: VerdanaBold;
   font-weight: 700;
@@ -20,10 +21,8 @@ export const TitleCss = styled(Typography)`
   line-height: 25px;
   color: ${theme.palette.primary.main};
 
-  
-
   ${theme.breakpoints.up('tablet')} {
-    margin-bottom: 68px;
+    margin-bottom: 60px;
     
     font-size: 34px;
     line-height: 48px;
@@ -37,7 +36,11 @@ export const FormCss = styled.form`
   align-items: center;  
 
   ${theme.breakpoints.up('tablet')} {
-    align-items: start;
+    align-items: start;    
+  };
+
+  ${theme.breakpoints.up('desktop')} {
+    align-items: end;
   };
 `;
 
@@ -70,6 +73,11 @@ export const TextFieldCss = styled(TextField)`
     letter-spacing: 0.04em;
     background: transparent;
   };
+  
+  & .MuiFormHelperText-root {
+    position: absolute;
+    bottom: -20px;
+  };
 
   ${theme.breakpoints.up('tablet')} {
     width: 240px;
@@ -78,25 +86,85 @@ export const TextFieldCss = styled(TextField)`
 
 export const InputWrapperCss = styled(Box)`
   display: flex;
+  flex-direction: column;
+
+  ${theme.breakpoints.up('tablet')} {
+    flex-direction: row;
+    margin-bottom: 38px;
+  };  
 `;
 
 export const InputGroupBoxCss = styled(Box)`
   display: flex;
   flex-direction: column;
-`;
-
-
-
-
-export const ButtonsBoxCss = styled(Box)`
-  display: flex;
-  flex-direction: column;
-  margin-top: 28px;
 
   ${theme.breakpoints.up('tablet')} {
-    flex-direction: row;
+    &:last-child {
+      margin-left: 32px;
+    };
+  };
+
+  ${theme.breakpoints.up('desktop')} {
+    &:last-child {
+      margin-right: 18px;
+    };
   };
 `;
+
+export const FormControlCss = styled(FormControl)`
+  margin-bottom: 40px;
+
+  & label.Mui-focused {
+    color: ${theme.palette.primary.accent};
+  };
+
+  & > label {
+    font-family: VerdanaBold;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+  };
+
+  & .Mui-checked {    
+    color: ${theme.palette.primary.accent};
+  };
+
+  & .MuiFormGroup-root {
+
+  };
+
+  ${theme.breakpoints.up('tablet')} {
+    margin-bottom: 0;    
+
+    & > label {
+      padding-top: 20px;
+      padding-bottom: 11px;
+      border-bottom: 1px solid ${theme.palette.primary.darkGrey};    
+    };    
+  };
+`;
+  // &:checked {
+  //   appearance: none;
+  //   border: 5px solid ${theme.palette.primary.white};
+  //   border-radius: 50%;
+  //   box-shadow: ${theme.palette.primary.darkGrey} 0 0 0 1px;
+  //   background: ${theme.palette.primary.accent};
+
+  //   & ~ span {
+  //     color: ${theme.palette.primary.accent};
+  //   };
+  // };
+
+// export const ButtonsBoxCss = styled(Box)`
+//   display: flex;
+//   flex-direction: column;
+//   margin-top: 28px;
+
+//   ${theme.breakpoints.up('tablet')} {
+//     flex-direction: row;
+//   };
+// `;
 
     
 
@@ -257,15 +325,15 @@ export const ButtonsBoxCss = styled(Box)`
 //   width: 20px;
 //   height: 20px;
 
-//   &:checked {
-//     appearance: none;
-//     border: 5px solid ${theme.palette.primary.white};
-//     border-radius: 50%;
-//     box-shadow: ${theme.palette.primary.darkGrey} 0 0 0 1px;
-//     background: ${theme.palette.primary.accent};
+  // &:checked {
+  //   appearance: none;
+  //   border: 5px solid ${theme.palette.primary.white};
+  //   border-radius: 50%;
+  //   box-shadow: ${theme.palette.primary.darkGrey} 0 0 0 1px;
+  //   background: ${theme.palette.primary.accent};
 
-//     & ~ span {
-//       color: ${theme.palette.primary.accent};
-//     };
-//   };
+  //   & ~ span {
+  //     color: ${theme.palette.primary.accent};
+  //   };
+  // };
 // `;

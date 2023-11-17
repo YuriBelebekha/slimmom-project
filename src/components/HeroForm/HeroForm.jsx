@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import * as React from 'react';
 import * as yup from 'yup';
-import { RadioGroup, Radio, FormControlLabel, FormControl, FormLabel } from '@mui/material';
+import { RadioGroup, Radio, FormControlLabel, FormLabel } from '@mui/material';
 import {
   SectionCss,
   TitleCss,
@@ -9,6 +9,7 @@ import {
   TextFieldCss,
   InputWrapperCss,
   InputGroupBoxCss,
+  FormControlCss,
 } from './HeroForm.styled';
 import { ButtonSubmit } from '../ButtonSubmit/ButtonSubmit';
 
@@ -17,29 +18,29 @@ const heroFormValidationSchema = yup.object().shape({
     yup
       .number('Enter your height')
       .integer('An integer value must be entered')
-      .min(120, 'The entered value must not be less than 120 (cm)')
-      .max(220, 'The entered value should not exceed 220 (cm)')
+      .min(120, 'Value must not be less than 120 (cm)')
+      .max(220, 'Value should not exceed 220 (cm)')
       .required('Height is required'),
   age:
     yup
       .number('Enter your age')
       .integer('An integer value must be entered')
-      .min(18, 'The entered value must not be less than 18 (years)')
-      .max(70, 'The entered value should not exceed 70 (years)')
+      .min(18, 'Value must not be less than 18 (years)')
+      .max(70, 'Value should not exceed 70 (years)')
       .required('Age is required'),
   currentWeight:
     yup
       .number('Enter your current weight')
       .integer('An integer value must be entered')
-      .min(35, 'The entered value must not be less than 35 (kg)')
-      .max(180, 'The entered value should not exceed 180 (kg)')
+      .min(35, 'Value must not be less than 35 (kg)')
+      .max(180, 'Value should not exceed 180 (kg)')
       .required('Current weight is required'),
   desiredWeight:
     yup
       .number('Enter your desired weight')
       .integer('An integer value must be entered')
-      .min(35, 'The entered value must not be less than 35 (kg)')
-      .max(180, 'The entered value should not exceed 180 (kg)')
+      .min(35, 'Value must not be less than 35 (kg)')
+      .max(180, 'Value should not exceed 180 (kg)')
       .required('Desired weight is required'),
   bloodType:
     yup
@@ -126,7 +127,7 @@ export const HeroForm = () => {
               helperText={formik.touched.desiredWeight && formik.errors.desiredWeight}
             />
 
-            <FormControl>
+            <FormControlCss>
               <FormLabel id="bloodType">Blood type *</FormLabel>
 
               <RadioGroup
@@ -141,7 +142,7 @@ export const HeroForm = () => {
                 <FormControlLabel value="3" control={<Radio />} label="3" />
                 <FormControlLabel value="4" control={<Radio />} label="4" />
               </RadioGroup>
-            </FormControl>
+            </FormControlCss>
           </InputGroupBoxCss>
         </InputWrapperCss>
 
