@@ -59,6 +59,11 @@ export const TextFieldCss = styled(TextField)`
     background: transparent;
   };
 
+  & .MuiFormHelperText-root {
+    position: absolute;
+    bottom: -20px;
+  };
+
   ${theme.breakpoints.up('tablet')} {
     width: 240px;
   };
