@@ -1,3 +1,6 @@
+import { useDispatch } from 'react-redux';
+import { login } from 'redux/auth/authOperations';
+
 import { NavLink } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
@@ -12,36 +15,45 @@ import { ButtonSubmit } from '../ButtonSubmit/ButtonSubmit';
 import { Button } from '../Button/Button';
 
 const loginFormValidationSchema = yup.object().shape({
-  email:
-    yup
-      .string('Enter your email')
-      .email('Enter a valid email')
-      .required('Email is required'),
-  password:
-    yup
-      .string('Enter your password')
-      .min(8, 'Password should be of minimum 8 characters length')
-      .required('Password is required'),
+  email: yup
+    .string('Enter your email')
+    .email('Enter a valid email')
+    .required('Email is required'),
+  password: yup
+    .string('Enter your password')
+    .min(8, 'Password should be of minimum 8 characters length')
+    .required('Password is required'),
 });
 
 export const LoginForm = () => {
+  const dispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
+
     validationSchema: loginFormValidationSchema,
-    onSubmit: (values, { resetForm }) => {
+
+    onSubmit: (values, { resetForm, setSubmitting }) => {
       console.log(values);
+
+      const payload = {
+        email: values.email,
+        password: values.password,
+      };
+      dispatch(login(payload)).finally(() => {
+        setSubmitting(false);
+      });
+
       resetForm();
     },
   });
 
   return (
     <Box component="section">
-      <TitleCss component="h1">
-        Log In
-      </TitleCss>
+      <TitleCss component="h1">Log In</TitleCss>
 
       <FormCss onSubmit={formik.handleSubmit}>
         <TextFieldCss
@@ -55,7 +67,7 @@ export const LoginForm = () => {
           error={formik.touched.email && Boolean(formik.errors.email)}
           helperText={formik.touched.email && formik.errors.email}
         />
-        
+
         <TextFieldCss
           variant="standard"
           id="password"
@@ -67,7 +79,7 @@ export const LoginForm = () => {
           onBlur={formik.handleBlur}
           error={formik.touched.password && Boolean(formik.errors.password)}
           helperText={formik.touched.password && formik.errors.password}
-        />          
+        />
 
         <ButtonsBoxCss>
           <ButtonSubmit name="Log In" />
@@ -78,5 +90,5 @@ export const LoginForm = () => {
         </ButtonsBoxCss>
       </FormCss>
     </Box>
-  )
+  );
 };
