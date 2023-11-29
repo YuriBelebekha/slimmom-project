@@ -2,7 +2,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 // import { Box } from '@mui/material';
 // import { VisuallyHiddenH1 } from '../components/VisuallyHidden/VisuallyHidden.styled';
-import { HeroForm } from '../components/HeroForm';
+import { CalculateForm } from '../components/CalculateForm';
 
 const Home = () => {
   return (
@@ -10,10 +10,10 @@ const Home = () => {
       <Helmet>
         <title>SlimMom | Home</title>
       </Helmet>
-      
-      <HeroForm />
+
+      <CalculateForm />
     </HelmetProvider>
-  )
+  );
 };
 
 export default Home;

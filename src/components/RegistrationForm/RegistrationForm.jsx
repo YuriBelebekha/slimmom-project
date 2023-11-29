@@ -18,7 +18,7 @@ const registrationFormValidationSchema = yup.object().shape({
   username: yup
     .string('Enter your name')
     .min(3, 'Minimum 3 characters length')
-    .max(30, 'Maximum 30 characters length')
+    .max(254, 'Maximum 254 characters length')
     .required('Name is required'),
   email: yup
     .string('Enter your email')
@@ -27,7 +27,7 @@ const registrationFormValidationSchema = yup.object().shape({
   password: yup
     .string('Enter your password')
     .min(8, 'Minimum 8 characters length')
-    .max(30, 'Maximum 30 characters length')
+    .max(100, 'Maximum 100 characters length')
     .required('Password is required'),
 });
 

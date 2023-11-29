@@ -10,45 +10,40 @@ import {
   InputWrapperCss,
   InputGroupBoxCss,
   FormControlCss,
-} from './HeroForm.styled';
+} from './CalculateForm.styled';
 import { ButtonSubmit } from '../ButtonSubmit/ButtonSubmit';
 
-const heroFormValidationSchema = yup.object().shape({
-  height:
-    yup
-      .number('Enter your height')
-      .integer('An integer value must be entered')
-      .min(120, 'Value must not be less than 120 (cm)')
-      .max(220, 'Value should not exceed 220 (cm)')
-      .required('Height is required'),
-  age:
-    yup
-      .number('Enter your age')
-      .integer('An integer value must be entered')
-      .min(18, 'Value must not be less than 18 (years)')
-      .max(70, 'Value should not exceed 70 (years)')
-      .required('Age is required'),
-  currentWeight:
-    yup
-      .number('Enter your current weight')
-      .integer('An integer value must be entered')
-      .min(35, 'Value must not be less than 35 (kg)')
-      .max(180, 'Value should not exceed 180 (kg)')
-      .required('Current weight is required'),
-  desiredWeight:
-    yup
-      .number('Enter your desired weight')
-      .integer('An integer value must be entered')
-      .min(35, 'Value must not be less than 35 (kg)')
-      .max(180, 'Value should not exceed 180 (kg)')
-      .required('Desired weight is required'),
-  bloodType:
-    yup
-      .string('Enter your blood type')
-      .required('Blood type is required'),
+const calculateFormValidationSchema = yup.object().shape({
+  height: yup
+    .number('Enter your height')
+    .integer('An integer value must be entered')
+    .min(120, 'Value must not be less than 120 (cm)')
+    .max(220, 'Value should not exceed 220 (cm)')
+    .required('Height is required'),
+  age: yup
+    .number('Enter your age')
+    .integer('An integer value must be entered')
+    .min(18, 'Value must not be less than 18 (years)')
+    .max(70, 'Value should not exceed 70 (years)')
+    .required('Age is required'),
+  currentWeight: yup
+    .number('Enter your current weight')
+    .integer('An integer value must be entered')
+    .min(35, 'Value must not be less than 35 (kg)')
+    .max(180, 'Value should not exceed 180 (kg)')
+    .required('Current weight is required'),
+  desiredWeight: yup
+    .number('Enter your desired weight')
+    .integer('An integer value must be entered')
+    .min(35, 'Value must not be less than 35 (kg)')
+    .max(180, 'Value should not exceed 180 (kg)')
+    .required('Desired weight is required'),
+  bloodType: yup
+    .string('Enter your blood type')
+    .required('Blood type is required'),
 });
 
-export const HeroForm = () => {
+export const CalculateForm = () => {
   const formik = useFormik({
     initialValues: {
       height: '',
@@ -57,7 +52,7 @@ export const HeroForm = () => {
       desiredWeight: '',
       bloodType: '1',
     },
-    validationSchema: heroFormValidationSchema,
+    validationSchema: calculateFormValidationSchema,
     onSubmit: (values, { resetForm }) => {
       console.log(values);
       resetForm();
@@ -85,7 +80,7 @@ export const HeroForm = () => {
               error={formik.touched.height && Boolean(formik.errors.height)}
               helperText={formik.touched.height && formik.errors.height}
             />
-            
+
             <TextFieldCss
               variant="standard"
               id="age"
@@ -108,8 +103,13 @@ export const HeroForm = () => {
               value={formik.values.currentWeight}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              error={formik.touched.currentWeight && Boolean(formik.errors.currentWeight)}
-              helperText={formik.touched.currentWeight && formik.errors.currentWeight}
+              error={
+                formik.touched.currentWeight &&
+                Boolean(formik.errors.currentWeight)
+              }
+              helperText={
+                formik.touched.currentWeight && formik.errors.currentWeight
+              }
             />
           </InputGroupBoxCss>
 
@@ -123,8 +123,13 @@ export const HeroForm = () => {
               value={formik.values.desiredWeight}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              error={formik.touched.desiredWeight && Boolean(formik.errors.desiredWeight)}
-              helperText={formik.touched.desiredWeight && formik.errors.desiredWeight}
+              error={
+                formik.touched.desiredWeight &&
+                Boolean(formik.errors.desiredWeight)
+              }
+              helperText={
+                formik.touched.desiredWeight && formik.errors.desiredWeight
+              }
             />
 
             <FormControlCss>
@@ -149,5 +154,5 @@ export const HeroForm = () => {
         <ButtonSubmit name="Start losing weight" />
       </FormCss>
     </SectionCss>
-  )
+  );
 };
