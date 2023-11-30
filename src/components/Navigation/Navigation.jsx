@@ -1,10 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import { Logo } from '../Logo';
-import { NavCss, NavBoxCss, NavLinkCss } from './Navigation.styled';
-// import { useAuth } from 'hooks';
+import { AuthNav } from '../AuthNav';
+import { UserNav } from '../UserNav';
+import { useAuth } from 'hooks';
+import { NavCss, NavBoxCss } from './Navigation.styled';
 
-export const Navigation = () => { 
-  // const { isLoggedIn } = useAuth();
+export const Navigation = () => {
+  const { isLoggedIn } = useAuth();
 
   return (
     <NavCss>
@@ -14,15 +16,7 @@ export const Navigation = () => {
         </NavLink>
       </NavBoxCss>
 
-      <NavBoxCss>        
-        <NavLinkCss to="/login">        
-          Log in        
-        </NavLinkCss>
-
-        <NavLinkCss to="/registration">        
-          Registration        
-        </NavLinkCss>
-      </NavBoxCss>
+      <NavBoxCss>{isLoggedIn ? <UserNav /> : <AuthNav />}</NavBoxCss>
     </NavCss>
   );
 };

@@ -1,10 +1,19 @@
-import { LogoBoxCss, MainLogoCss, MainLogoTextCss } from './Logo.styled';
+import {
+  LogoBoxCss,
+  MainLogoCss,
+  MainLogoTextCss,
+  MainLogoTextDiaryCss,
+} from './Logo.styled';
+import { useAuth } from 'hooks';
 
 export const Logo = () => {
+  const { isLoggedIn } = useAuth();
+
   return (
     <LogoBoxCss>
       <MainLogoCss />
-      <MainLogoTextCss />
-    </LogoBoxCss>    
+
+      {isLoggedIn ? <MainLogoTextDiaryCss /> : <MainLogoTextCss />}
+    </LogoBoxCss>
   );
 };

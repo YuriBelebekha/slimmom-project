@@ -103,7 +103,7 @@ export const RegistrationForm = () => {
         />
 
         <ButtonsBoxCss>
-          <ButtonSubmit name="Registration" />
+          <ButtonSubmit name="Register" />
 
           <NavLink to="/login">
             <Button name="Log in" />
