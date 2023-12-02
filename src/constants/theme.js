@@ -10,6 +10,7 @@ export const theme = createTheme({
       darkGrey: '#9B9FAA',
       white: '#FFFFFF',
       errorMessage: '#FF0000',
+      bgcMobileMenu: '#264061',
       // light: '#757ce8',
       // contrastText: '#fff',
     },
