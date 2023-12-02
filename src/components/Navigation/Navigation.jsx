@@ -11,9 +11,15 @@ export const Navigation = () => {
   return (
     <NavCss>
       <NavBoxCss>
-        <NavLink to="/">
-          <Logo />
-        </NavLink>
+        {isLoggedIn ? (
+          <NavLink to="/diary">
+            <Logo />
+          </NavLink>
+        ) : (
+          <NavLink to="/">
+            <Logo />
+          </NavLink>
+        )}
       </NavBoxCss>
 
       <NavBoxCss>{isLoggedIn ? <UserNav /> : <AuthNav />}</NavBoxCss>
