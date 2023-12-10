@@ -1,7 +1,4 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-
-// import { Box } from '@mui/material';
-// import { VisuallyHiddenH1 } from '../components/VisuallyHidden/VisuallyHidden.styled';
 import { CalculateForm } from '../components/CalculateForm';
 
 const Home = () => {

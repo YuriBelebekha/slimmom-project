@@ -1,6 +1,9 @@
 import * as React from 'react';
+import { useDispatch } from 'react-redux';
+import { useAuth } from 'hooks';
+import { logout } from 'redux/auth/authOperations';
+
 import Button from '@mui/material/Button';
-// import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -14,6 +17,10 @@ import {
 export const UserNav = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const dispatch = useDispatch();
+  const {
+    user: { username },
+  } = useAuth();
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
@@ -23,12 +30,23 @@ export const UserNav = () => {
     setAnchorEl(null);
   };
 
+  const handleClickLogout = () => {
+    dispatch(logout());
+  };
+
   return (
     <>
       <BoxCss>
         <NavLinkCss to="/diary">Diary</NavLinkCss>
         <NavLinkCss to="/calculator">Calculator</NavLinkCss>
       </BoxCss>
+
+      <>
+        <span>{username}</span>
+        <Button type="button" onClick={handleClickLogout}>
+          Exit
+        </Button>
+      </>
 
       <MobileMenuBoxCss>
         <Button
