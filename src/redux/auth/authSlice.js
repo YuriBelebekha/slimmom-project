@@ -34,7 +34,7 @@ export const authSlice = createSlice({
       .addCase(logout.fulfilled, (state, _) => {
         state.user = { name: null, email: null };
         state.token = null;
-        state.isLoggedIn = true;
+        state.isLoggedIn = false;
       })
 
       // refreshUser
