@@ -11,6 +11,7 @@ export const theme = createTheme({
       white: '#FFFFFF',
       errorMessage: '#FF0000',
       bgcMobileMenu: '#264061',
+      bgcUserBlock: '#EFF1F3',
       // light: '#757ce8',
       // contrastText: '#fff',
     },

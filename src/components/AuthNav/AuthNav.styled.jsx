@@ -27,12 +27,12 @@ export const NavLinkCss = styled(NavLink)`
   ${theme.breakpoints.up('desktop')} {
     &:first-of-type {
       margin-left: 10px;
-      padding: 9px 0 3px 20px;
+      padding: 12px 0 3px 20px;
       border-left: 2px solid ${theme.palette.primary.grey};
     }
 
     &:last-child {
-      padding: 9px 0 3px;
+      padding: 12px 0 3px;
     }
   }
 `;

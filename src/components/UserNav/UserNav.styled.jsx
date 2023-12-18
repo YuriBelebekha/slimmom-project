@@ -29,17 +29,17 @@ export const NavLinkCss = styled(NavLink)`
   ${theme.breakpoints.up('desktop')} {
     &:first-of-type {
       margin-left: 10px;
-      padding: 9px 0 3px 20px;
+      padding: 12px 0 3px 20px;
       border-left: 2px solid ${theme.palette.primary.grey};
     }
 
     &:last-child {
-      padding: 9px 0 3px;
+      padding: 12px 0 3px;
     }
   }
 `;
 
-export const BoxCss = styled.div`
+export const BoxCss = styled(Box)`
   ${theme.breakpoints.down('desktop')} {
     display: none;
   }
@@ -97,5 +97,116 @@ export const MenuCss = styled(Menu)`
     ${theme.breakpoints.up('tablet')} {
       padding: 100px 0;
     }
+  }
+`;
+
+// export const UserNavMenuBoxCss = styled(Box)`
+//   position: absolute;
+//   top: 80px;
+//   right: 0;
+//   height: 40px;
+//   width: 100%;
+//   text-align: right;
+//   background-color: ${theme.palette.primary.bgcUserBlock};
+//   z-index: 1;
+
+//   & > span {
+//     display: inline-block;
+//     padding: 12px 15px 3px;
+//     margin-top: 3px;
+//     font-family: verdanaBold;
+//     font-size: 14px;
+//     font-weight: 700;
+//     line-height: 17px;
+//     letter-spacing: 0.04em;
+//     text-transform: capitalize;
+//     color: ${theme.palette.primary.main};
+//     border-right: 2px solid ${theme.palette.primary.grey};
+//   }
+
+//   & > button {
+//     font-family: verdanaBold;
+//     font-size: 14px;
+//     font-weight: 700;
+//     line-height: 17px;
+//     letter-spacing: 0.04em;
+//     text-transform: capitalize;
+//     color: ${theme.palette.primary.darkGrey};
+//   }
+
+//   ${theme.breakpoints.up('tablet')} {
+//     top: 18px;
+//     right: 90px;
+//     width: 35%;
+//     background-color: transparent;
+//   }
+
+//   ${theme.breakpoints.up('desktop')} {
+//     top: -10px;
+//     right: 0;
+//     width: 505px;
+//     height: 100vh;
+//     padding-top: 124px;
+//     padding-right: 15px;
+//     background-color: ${theme.palette.primary.bgcUserBlock};
+//   }
+// `;
+
+export const UserMenuBackgroundColor = styled(Box)`
+  ${theme.breakpoints.up('desktop')} {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 515px;
+    height: 100%;
+    background-color: ${theme.palette.primary.bgcUserBlock};
+  }
+`;
+
+export const UserNavMenuBoxCss = styled(Box)`
+  position: absolute;
+  top: 82px;
+  right: 0;
+  height: 40px;
+  width: 100%;
+  text-align: right;
+  background-color: ${theme.palette.primary.bgcUserBlock};
+  z-index: 2;
+
+  & > span {
+    display: inline-block;
+    padding: 12px 15px 3px;
+    margin-top: 3px;
+    font-family: verdanaBold;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+    color: ${theme.palette.primary.main};
+    border-right: 2px solid ${theme.palette.primary.grey};
+  }
+
+  & > button {
+    font-family: verdanaBold;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+    color: ${theme.palette.primary.darkGrey};
+  }
+
+  ${theme.breakpoints.up('tablet')} {
+    top: 18px;
+    right: 90px;
+    width: 35%;
+    background-color: transparent;
+  }
+
+  ${theme.breakpoints.up('desktop')} {
+    right: 0;
+    padding-top: 95px;
+    padding-right: 15px;
   }
 `;

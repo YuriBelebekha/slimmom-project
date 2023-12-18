@@ -3,10 +3,13 @@ import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { AppBar } from '../AppBar';
 import { BackgroundImages } from '../BackgroundImages';
+import { BackgroundImagesUserMenu } from '../BackgroundImagesUserMenu';
+import { useAuth } from 'hooks';
 import { Wrapper, ContainerCss } from './Layout.styled';
 
-
 export const Layout = () => {
+  const { isLoggedIn } = useAuth();
+
   return (
     <Wrapper>
       <AppBar />
@@ -18,8 +21,8 @@ export const Layout = () => {
 
         <ToastContainer />
       </ContainerCss>
-      
-      <BackgroundImages />
+
+      {isLoggedIn ? <BackgroundImagesUserMenu /> : <BackgroundImages />}
     </Wrapper>
   );
 };

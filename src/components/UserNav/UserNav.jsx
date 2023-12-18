@@ -12,6 +12,8 @@ import {
   BoxCss,
   MobileMenuBoxCss,
   MenuCss,
+  UserMenuBackgroundColor,
+  UserNavMenuBoxCss,
 } from './UserNav.styled';
 
 export const UserNav = () => {
@@ -41,12 +43,14 @@ export const UserNav = () => {
         <NavLinkCss to="/calculator">Calculator</NavLinkCss>
       </BoxCss>
 
-      <>
+      <UserMenuBackgroundColor />
+
+      <UserNavMenuBoxCss>
         <span>{username}</span>
         <Button type="button" onClick={handleClickLogout}>
           Exit
         </Button>
-      </>
+      </UserNavMenuBoxCss>
 
       <MobileMenuBoxCss>
         <Button
