@@ -1,4 +1,5 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { DiaryUserCalendar } from 'components/DiaryUserCalendar';
 
 const Diary = () => {
   return (
@@ -6,6 +7,8 @@ const Diary = () => {
       <Helmet>
         <title>SlimMom | Diary</title>
       </Helmet>
+
+      <DiaryUserCalendar />
     </HelmetProvider>
   );
 };

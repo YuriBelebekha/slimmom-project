@@ -49,7 +49,7 @@ export const ImageListItemDesktopCss = styled(ImageListItem)`
 
   ${theme.breakpoints.up('desktop')} {
     &:nth-of-type(1) {
-      top: 0;
+      top: 35px;
       right: 0;
       z-index: 1;
 
