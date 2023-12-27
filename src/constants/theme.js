@@ -60,4 +60,42 @@ export const theme = createTheme({
       sharp: 'cubic-bezier(0.4, 0, 0.6, 1)',
     },
   },
+
+  components: {
+    // DatePicker Component Theme
+    MuiOutlinedInput: {
+      styleOverrides: {
+        input: {
+          padding: '0',
+          fontFamily: 'VerdanaBold',
+          fontSize: '18px',
+          lineHeight: '22px',
+        },
+        notchedOutline: {
+          display: 'none',
+        },
+      },
+    },
+
+    MuiPickersToolbar: {
+      styleOverrides: {
+        root: {
+          color: '#FFFFFF',
+          borderRadius: '4px 4px 0 0',
+          borderWidth: 1,
+          border: '1px solid',
+          backgroundColor: '#FC842D',
+        },
+      },
+    },
+
+    MuiDatePickerToolbar: {
+      styleOverrides: {
+        title: {
+          fontFamily: 'VerdanaBold',
+          fontSize: '24px',
+        },
+      },
+    },
+  },
 });
