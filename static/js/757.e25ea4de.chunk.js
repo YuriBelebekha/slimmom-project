@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkslimmom_project=self.webpackChunkslimmom_project||[]).push([[757],{4757:function(e,i,l){l.r(i);var r=l(6907),c=l(184);i.default=function(){return(0,c.jsx)(r.B6,{children:(0,c.jsx)(r.ql,{children:(0,c.jsx)("title",{children:"SlimMom | Diary"})})})}}}]);
-//# sourceMappingURL=757.e25ea4de.chunk.js.map
