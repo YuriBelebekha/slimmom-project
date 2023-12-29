@@ -12,15 +12,10 @@ export const theme = createTheme({
       errorMessage: '#FF0000',
       bgcMobileMenu: '#264061',
       bgcUserBlock: '#EFF1F3',
-      // light: '#757ce8',
-      // contrastText: '#fff',
     },
     secondary: {
-      // light: '#ff7961',
       main: '#f44336',
       accent: '#FC842D80',
-      // dark: '#ba000d',
-      // contrastText: '#000',
     },
   },
 
@@ -65,12 +60,7 @@ export const theme = createTheme({
     // DatePicker Component Theme
     MuiOutlinedInput: {
       styleOverrides: {
-        input: {
-          padding: '0',
-          fontFamily: 'VerdanaBold',
-          fontSize: '18px',
-          lineHeight: '22px',
-        },
+        input: {},
         notchedOutline: {
           display: 'none',
         },

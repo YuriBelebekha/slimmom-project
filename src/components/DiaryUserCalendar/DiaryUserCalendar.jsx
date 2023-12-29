@@ -20,12 +20,6 @@ export const DiaryUserCalendar = () => {
           defaultValue={dayjs(
             `${getCurrentFullYear}-${getCurrentMonth}-${getCurrentDate}`
           )}
-          // sx={{
-          //   '.MuiInputBase-input': {
-          //     fontFamily: 'VerdanaBold',
-          //     padding: '0',
-          //   },
-          // }}
         />
         <DateRangeIcon />
       </LocalizationProvider>
