@@ -3,8 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import { ToastOptions } from 'services/toast-options';
 
-axios.defaults.baseURL = 'https://slimmom-backend.goit.global';
-// axios.defaults.baseURL = `${process.env.BASE_API_URL}`;
+axios.defaults.baseURL = `${process.env.REACT_APP_BASE_API_URL}`;
 
 const token = {
   set(token) {
