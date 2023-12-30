@@ -4,7 +4,10 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 
-import { DatePickerBoxCss } from './DiaryUserCalendar.styled';
+import {
+  DatePickerBoxCss,
+  DiaryListProductsBoxCss,
+} from './DiaryUserCalendar.styled';
 
 const currentDate = new Date();
 const getCurrentDate = currentDate.getDate();
@@ -13,16 +16,20 @@ const getCurrentFullYear = currentDate.getFullYear();
 
 export const DiaryUserCalendar = () => {
   return (
-    <DatePickerBoxCss>
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <MobileDatePicker
-          format="DD.MM.YYYY"
-          defaultValue={dayjs(
-            `${getCurrentFullYear}-${getCurrentMonth}-${getCurrentDate}`
-          )}
-        />
-        <DateRangeIcon />
-      </LocalizationProvider>
-    </DatePickerBoxCss>
+    <>
+      <DatePickerBoxCss>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <MobileDatePicker
+            format="DD.MM.YYYY"
+            defaultValue={dayjs(
+              `${getCurrentFullYear}-${getCurrentMonth}-${getCurrentDate}`
+            )}
+          />
+          <DateRangeIcon />
+        </LocalizationProvider>
+      </DatePickerBoxCss>
+
+      <DiaryListProductsBoxCss></DiaryListProductsBoxCss>
+    </>
   );
 };

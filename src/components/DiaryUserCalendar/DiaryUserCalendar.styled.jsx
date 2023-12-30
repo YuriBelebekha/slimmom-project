@@ -28,3 +28,5 @@ export const DatePickerBoxCss = styled(Box)`
     }
   }
 `;
+
+export const DiaryListProductsBoxCss = styled(Box)``;
