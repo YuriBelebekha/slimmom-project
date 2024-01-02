@@ -15,3 +15,4 @@ const token = {
 };
 
 // GET - '/product' - Select and get a list of products by query
+export const selectProduct = createAsyncThunk();
