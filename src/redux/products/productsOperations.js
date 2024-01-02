@@ -18,15 +18,14 @@ const token = {
 export const selectProduct = createAsyncThunk(
   'product',
   async (search, { rejectWithValue }) => {
-    if (!search) return [];
-
-    try {
-      const { data } = await axios.get('/product', { params: { search } });
-      token.set(data.token);
-      return data;
-    } catch (error) {
-      toast.warning('Item not found', ToastOptions);
-      return rejectWithValue(error.message);
-    }
+    // if (!search) return [];
+    // try {
+    //   const { data } = await axios.get('/product', { params: { search } });
+    //   token.set(data.token);
+    //   return data;
+    // } catch (error) {
+    //   toast.warning('Item not found', ToastOptions);
+    //   return rejectWithValue(error.message);
+    // }
   }
 );
