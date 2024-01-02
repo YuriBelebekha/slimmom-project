@@ -15,4 +15,18 @@ const token = {
 };
 
 // GET - '/product' - Select and get a list of products by query
-export const selectProduct = createAsyncThunk();
+export const selectProduct = createAsyncThunk(
+  'product',
+  async (search, { rejectWithValue }) => {
+    if (!search) return [];
+
+    try {
+      const { data } = await axios.get('/product', { params: { search } });
+      token.set(data.token);
+      return data;
+    } catch (error) {
+      toast.warning('Item not found', ToastOptions);
+      return rejectWithValue(error.message);
+    }
+  }
+);
