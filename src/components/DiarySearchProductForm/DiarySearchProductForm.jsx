@@ -4,7 +4,7 @@ import { ButtonContained } from '../ButtonContained/ButtonContained';
 export const DiarySearchProductForm = () => {
   return (
     <>
-      <ButtonContained color="success" name="+" />
+      <ButtonContained name="+" />
     </>
   );
 };
