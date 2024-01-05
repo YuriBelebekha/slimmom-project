@@ -18,6 +18,7 @@ const token = {
 export const selectProduct = createAsyncThunk(
   'product',
   async (search, { rejectWithValue }) => {
+    console.log(search);
     // if (!search) return [];
     // try {
     //   const { data } = await axios.get('/product', { params: { search } });
@@ -29,3 +30,5 @@ export const selectProduct = createAsyncThunk(
     // }
   }
 );
+
+selectProduct();

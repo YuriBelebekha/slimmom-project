@@ -20,17 +20,19 @@ export const ButtonCss = styled(Button)`
   border: 2px solid ${theme.palette.primary.accent};
   border-radius: 30px;
 
-  transition: background-color ${theme.transitions.duration.standard}ms ${theme.transitions.easing.easeOut},
-                         color ${theme.transitions.duration.standard}ms ${theme.transitions.easing.easeOut};
+  transition: background-color ${theme.transitions.duration.standard}ms
+      ${theme.transitions.easing.easeOut},
+    color ${theme.transitions.duration.standard}ms
+      ${theme.transitions.easing.easeOut};
 
-  &:hover{
+  &:hover {
     background-color: ${theme.palette.primary.accent};
     border: 2px solid ${theme.palette.primary.accent};
     color: ${theme.palette.primary.white};
-  };
+  }
 
   ${theme.breakpoints.up('tablet')} {
     margin-top: 0;
     margin-left: 32px;
-  };
+  }
 `;

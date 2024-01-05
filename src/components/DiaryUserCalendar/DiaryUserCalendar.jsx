@@ -4,6 +4,8 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 
+import { DiarySearchProductForm } from '../DiarySearchProductForm';
+
 import {
   DatePickerBoxCss,
   DiaryListProductsBoxCss,
@@ -29,7 +31,9 @@ export const DiaryUserCalendar = () => {
         </LocalizationProvider>
       </DatePickerBoxCss>
 
-      <DiaryListProductsBoxCss></DiaryListProductsBoxCss>
+      <DiaryListProductsBoxCss>
+        <DiarySearchProductForm />
+      </DiaryListProductsBoxCss>
     </>
   );
 };
