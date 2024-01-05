@@ -3,8 +3,10 @@ import styled from '@emotion/styled';
 import { theme } from '../../constants/theme';
 
 export const ButtonContainedCss = styled(Button)`
-  width: 48px !important;
+  min-width: 48px;
   height: 48px;
+
+  font-size: 24px;
 
   border-radius: 50%;
   background-color: ${theme.palette.primary.accent};
