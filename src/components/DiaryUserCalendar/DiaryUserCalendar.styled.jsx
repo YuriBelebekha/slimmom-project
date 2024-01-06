@@ -29,4 +29,9 @@ export const DatePickerBoxCss = styled(Box)`
   }
 `;
 
-export const DiaryListProductsBoxCss = styled(Box)``;
+export const DiaryListProductsBoxCss = styled(Box)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+`;
