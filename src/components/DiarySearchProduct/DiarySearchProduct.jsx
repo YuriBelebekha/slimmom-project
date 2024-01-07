@@ -6,9 +6,9 @@ import {
   AddProductFormWrapperCss,
   ModalCss,
   KeyboardReturnIconWrapperCss,
-} from './DiarySearchProductForm.styled';
+} from './DiarySearchProduct.styled';
 
-export const DiarySearchProductForm = () => {
+export const DiarySearchProduct = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
