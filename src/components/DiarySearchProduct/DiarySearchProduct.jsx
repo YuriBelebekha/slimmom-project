@@ -1,5 +1,6 @@
 import * as React from 'react';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
+import { DiarySearchProductForm } from '../DiarySearchProductForm';
 
 import {
   ButtonContainedCss,
@@ -25,7 +26,8 @@ export const DiarySearchProduct = () => {
           <KeyboardReturnIconWrapperCss>
             <KeyboardReturnIcon />
           </KeyboardReturnIconWrapperCss>
-          Lorem ipsum dolor sit
+
+          <DiarySearchProductForm />
         </AddProductFormWrapperCss>
       </ModalCss>
 

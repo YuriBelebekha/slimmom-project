@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Typography } from '@mui/material';
 
-export const VisuallyHiddenH1 = styled(Typography)`  
+export const VisuallyHidden = styled(Typography)`
   position: absolute;
   width: 1px;
   height: 1px;
