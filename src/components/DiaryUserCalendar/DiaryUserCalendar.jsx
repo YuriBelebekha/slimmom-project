@@ -5,6 +5,8 @@ import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 
 import { DiarySearchProduct } from '../DiarySearchProduct';
+import { useScreenSize } from '../../hooks/useScreenSize';
+import { theme } from '../../constants/theme';
 
 import {
   DatePickerBoxCss,
@@ -17,6 +19,8 @@ const getCurrentMonth = currentDate.getMonth() + 1;
 const getCurrentFullYear = currentDate.getFullYear();
 
 export const DiaryUserCalendar = () => {
+  const screenSize = useScreenSize();
+
   return (
     <>
       <DatePickerBoxCss>
@@ -32,7 +36,11 @@ export const DiaryUserCalendar = () => {
       </DatePickerBoxCss>
 
       <DiaryListProductsBoxCss>
-        <DiarySearchProduct />
+        {screenSize.width < theme.breakpoints.values.tablet ? (
+          <DiarySearchProduct />
+        ) : (
+          <></>
+        )}
       </DiaryListProductsBoxCss>
     </>
   );

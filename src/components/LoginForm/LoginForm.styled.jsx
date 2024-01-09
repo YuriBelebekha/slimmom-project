@@ -16,7 +16,7 @@ export const TitleCss = styled(Typography)`
 
   ${theme.breakpoints.up('tablet')} {
     text-align: left;
-  };
+  }
 `;
 
 export const FormCss = styled.form`
@@ -26,29 +26,29 @@ export const FormCss = styled.form`
 
   ${theme.breakpoints.up('tablet')} {
     align-items: start;
-  };
+  }
 `;
 
 export const TextFieldCss = styled(TextField)`
   width: 280px;
   padding: 4px 0;
-  margin-bottom: 32px;  
-  
+  margin-bottom: 32px;
+
   & label {
     font-family: VerdanaBold;
     font-size: 14px;
     font-weight: 700;
     line-height: 17px;
     letter-spacing: 0.04em;
-  };
+  }
 
   & label.Mui-focused {
     color: ${theme.palette.primary.accent};
-  };
+  }
 
   & .MuiInput-underline:after {
-    border-bottom-color: ${theme.palette.primary.accent};    
-  };
+    border-bottom-color: ${theme.palette.primary.accent};
+  }
 
   & .MuiInput-root {
     font-family: VerdanaBold;
@@ -57,16 +57,16 @@ export const TextFieldCss = styled(TextField)`
     line-height: 17px;
     letter-spacing: 0.04em;
     background: transparent;
-  };
+  }
 
   & .MuiFormHelperText-root {
     position: absolute;
     bottom: -20px;
-  };
+  }
 
   ${theme.breakpoints.up('tablet')} {
     width: 240px;
-  };
+  }
 `;
 
 export const ButtonsBoxCss = styled(Box)`
@@ -76,5 +76,5 @@ export const ButtonsBoxCss = styled(Box)`
 
   ${theme.breakpoints.up('tablet')} {
     flex-direction: row;
-  };
+  }
 `;
