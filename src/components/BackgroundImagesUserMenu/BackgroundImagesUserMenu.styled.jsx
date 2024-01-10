@@ -8,6 +8,7 @@ import 'animate.css';
 export const ImageListTabletCss = styled(ImageList)`
   display: none;
   margin: 0;
+  pointer-events: none;
 
   ${theme.breakpoints.up('tablet')} {
     display: block;
@@ -38,6 +39,7 @@ export const ImageListItemTabletCss = styled(ImageListItem)`
 export const ImageListDesktopCss = styled(ImageList)`
   display: none;
   margin: 0;
+  pointer-events: none;
 
   ${theme.breakpoints.up('desktop')} {
     display: block;
