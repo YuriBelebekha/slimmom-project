@@ -2,10 +2,12 @@ import { useDispatch } from 'react-redux';
 import { selectProduct } from 'redux/products/productsOperations';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { Box } from '@mui/material';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { ButtonSubmit } from '../ButtonSubmit/ButtonSubmit';
+import { useScreenSize } from '../../hooks/useScreenSize';
+import { theme } from '../../constants/theme';
 
+import { Box } from '@mui/material';
 import { FormCss, TextFieldCss } from './DiarySearchProductForm.styled';
 
 const searchProductFormValidationSchema = yup.object().shape({
@@ -24,6 +26,7 @@ const searchProductFormValidationSchema = yup.object().shape({
 
 export const DiarySearchProductForm = () => {
   const dispatch = useDispatch();
+  const screenSize = useScreenSize();
 
   const formik = useFormik({
     initialValues: {
@@ -77,7 +80,11 @@ export const DiarySearchProductForm = () => {
           helperText={formik.touched.weight && formik.errors.weight}
         />
 
-        <ButtonSubmit name="Add" />
+        {screenSize.width < theme.breakpoints.values.tablet ? (
+          <ButtonSubmit name="Add" />
+        ) : (
+          <ButtonSubmit name="+" />
+        )}
       </FormCss>
     </Box>
   );

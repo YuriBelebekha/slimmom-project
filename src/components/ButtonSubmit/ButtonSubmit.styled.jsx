@@ -4,7 +4,7 @@ import { theme } from '../../constants/theme';
 
 export const ButtonSubmitCss = styled(Button)`
   min-width: 180px;
-  padding: 13px 22px;  
+  padding: 13px 22px;
 
   font-family: verdanaBold;
   font-size: 14px;
@@ -21,5 +21,5 @@ export const ButtonSubmitCss = styled(Button)`
   &:focus {
     background-color: ${({ theme }) => theme.palette.primary.accent};
     box-shadow: 0px 2px 5px 0px ${theme.palette.primary.accent};
-  };
+  }
 `;

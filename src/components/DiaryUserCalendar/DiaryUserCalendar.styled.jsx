@@ -34,4 +34,10 @@ export const DiaryListProductsBoxCss = styled(Box)`
   justify-content: center;
   align-items: center;
   padding: 60px 20px;
+
+  ${theme.breakpoints.up('tablet')} {
+    padding-right: 0;
+    padding-left: 0;
+    justify-content: start;
+  }
 `;

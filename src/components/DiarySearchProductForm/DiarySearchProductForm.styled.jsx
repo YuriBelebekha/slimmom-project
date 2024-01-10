@@ -8,6 +8,7 @@ export const FormCss = styled.form`
   align-items: center;
 
   ${theme.breakpoints.up('tablet')} {
+    flex-direction: row;
     align-items: start;
   }
 `;
@@ -49,5 +50,14 @@ export const TextFieldCss = styled(TextField)`
 
   ${theme.breakpoints.up('tablet')} {
     width: 240px;
+
+    &:first-child {
+      margin-right: 20px;
+    }
+
+    &:nth-child(2) {
+      width: 106px;
+      margin-right: 85px;
+    }
   }
 `;

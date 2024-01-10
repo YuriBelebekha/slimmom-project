@@ -5,6 +5,7 @@ import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 
 import { DiarySearchProductMobile } from '../DiarySearchProductMobile';
+import { DiarySearchProduct } from '../DiarySearchProduct/DiarySearchProduct';
 import { useScreenSize } from '../../hooks/useScreenSize';
 import { theme } from '../../constants/theme';
 
@@ -39,7 +40,7 @@ export const DiaryUserCalendar = () => {
         {screenSize.width < theme.breakpoints.values.tablet ? (
           <DiarySearchProductMobile />
         ) : (
-          <></>
+          <DiarySearchProduct />
         )}
       </DiaryListProductsBoxCss>
     </>
