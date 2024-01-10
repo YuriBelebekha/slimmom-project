@@ -7,9 +7,9 @@ import {
   AddProductFormWrapperCss,
   ModalCss,
   KeyboardReturnIconWrapperCss,
-} from './DiarySearchProduct.styled';
+} from './DiarySearchProductMobile.styled';
 
-export const DiarySearchProduct = () => {
+export const DiarySearchProductMobile = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);

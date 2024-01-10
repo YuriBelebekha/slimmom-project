@@ -1,1 +1,0 @@
-export { DiarySearchProduct } from './DiarySearchProduct';
