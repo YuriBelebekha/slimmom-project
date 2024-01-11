@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { selectProduct } from 'redux/products/productsOperations';
+import { selectProduct } from 'redux/productSearch/productSearchOperations';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { VisuallyHidden } from '../VisuallyHidden';
