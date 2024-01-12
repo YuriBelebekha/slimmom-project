@@ -51,11 +51,11 @@ export const TextFieldCss = styled(TextField)`
   ${theme.breakpoints.up('tablet')} {
     width: 240px;
 
-    &:first-child {
+    &:first-of-type {
       margin-right: 20px;
     }
 
-    &:nth-child(2) {
+    &:nth-of-type(2) {
       width: 106px;
       margin-right: 85px;
     }

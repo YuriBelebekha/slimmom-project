@@ -12,6 +12,7 @@ export const theme = createTheme({
       errorMessage: '#FF0000',
       bgcMobileMenu: '#264061',
       bgcUserBlock: '#EFF1F3',
+      modalBackdrop: 'rgba(33, 33, 33, 0.3) ',
     },
     secondary: {
       main: '#f44336',

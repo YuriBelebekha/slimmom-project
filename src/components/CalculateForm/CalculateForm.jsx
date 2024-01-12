@@ -1,6 +1,11 @@
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import * as React from 'react';
 import * as yup from 'yup';
+import { getDailyRate } from 'redux/dailyRate/dailyRateOperations';
+import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
+// import { useDailyRate } from 'hooks';
+
 import { RadioGroup, Radio, FormControlLabel, FormLabel } from '@mui/material';
 import {
   SectionCss,
@@ -10,8 +15,12 @@ import {
   InputWrapperCss,
   InputGroupBoxCss,
   FormControlCss,
+  ButtonSubmitCss,
+  ModalCss,
+  ModalBoxContentCss,
+  KeyboardReturnIconWrapperCss,
 } from './CalculateForm.styled';
-import { ButtonSubmit } from '../ButtonSubmit/ButtonSubmit';
+// import { ButtonSubmit } from '../ButtonSubmit/ButtonSubmit';
 
 const calculateFormValidationSchema = yup.object().shape({
   height: yup
@@ -44,6 +53,14 @@ const calculateFormValidationSchema = yup.object().shape({
 });
 
 export const CalculateForm = () => {
+  const dispatch = useDispatch();
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  // const { dailyRate, notAllowedProducts } = useDailyRate();
+
   const formik = useFormik({
     initialValues: {
       height: '',
@@ -52,9 +69,22 @@ export const CalculateForm = () => {
       desiredWeight: '',
       bloodType: '1',
     },
+
     validationSchema: calculateFormValidationSchema,
-    onSubmit: (values, { resetForm }) => {
-      console.log(values);
+
+    onSubmit: (values, { resetForm, setSubmitting }) => {
+      // console.log(values);
+      const payload = {
+        height: values.height,
+        age: values.age,
+        weight: values.currentWeight,
+        desiredWeight: values.desiredWeight,
+        bloodType: Number(values.bloodType),
+      };
+      dispatch(getDailyRate(payload)).finally(() => {
+        setSubmitting(true);
+      });
+
       resetForm();
     },
   });
@@ -64,7 +94,6 @@ export const CalculateForm = () => {
       <TitleCss component="h1">
         Calculate your daily calorie intake right now
       </TitleCss>
-
       <FormCss onSubmit={formik.handleSubmit}>
         <InputWrapperCss>
           <InputGroupBoxCss>
@@ -151,8 +180,33 @@ export const CalculateForm = () => {
           </InputGroupBoxCss>
         </InputWrapperCss>
 
-        <ButtonSubmit name="Start losing weight" />
+        <ButtonSubmitCss type="submit" onClick={handleOpen}>
+          Start losing weight
+        </ButtonSubmitCss>
+
+        {/* <ButtonSubmit name="Start losing weight" onClick={handleOpen} /> */}
       </FormCss>
+
+      {formik.isValid && formik.isSubmitting ? (
+        <ModalCss
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <ModalBoxContentCss>
+            <KeyboardReturnIconWrapperCss>
+              <KeyboardReturnIcon />
+            </KeyboardReturnIconWrapperCss>
+
+            <TitleCss component="h2">
+              Your recommended daily calorie intake is
+            </TitleCss>
+          </ModalBoxContentCss>
+        </ModalCss>
+      ) : (
+        <></>
+      )}
     </SectionCss>
   );
 };
