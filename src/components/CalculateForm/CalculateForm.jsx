@@ -1,12 +1,21 @@
 import { useDispatch } from 'react-redux';
-import { useFormik } from 'formik';
 import * as React from 'react';
+import { FixedSizeList } from 'react-window';
+import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { getDailyRate } from 'redux/dailyRate/dailyRateOperations';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
-// import { useDailyRate } from 'hooks';
+import { useDailyRate } from 'hooks';
 
-import { RadioGroup, Radio, FormControlLabel, FormLabel } from '@mui/material';
+import {
+  RadioGroup,
+  Radio,
+  FormControlLabel,
+  FormLabel,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+} from '@mui/material';
 import {
   SectionCss,
   TitleCss,
@@ -19,6 +28,7 @@ import {
   ModalCss,
   ModalBoxContentCss,
   KeyboardReturnIconWrapperCss,
+  KcalValueTextCss,
 } from './CalculateForm.styled';
 // import { ButtonSubmit } from '../ButtonSubmit/ButtonSubmit';
 
@@ -59,7 +69,21 @@ export const CalculateForm = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  // const { dailyRate, notAllowedProducts } = useDailyRate();
+  const {
+    dailyRate: { dailyRate, notAllowedProducts },
+  } = useDailyRate();
+
+  function renderRow(props) {
+    const { index, style } = props;
+
+    return (
+      <ListItem style={style} key={index} component="div" disablePadding>
+        <ListItemButton>
+          <ListItemText primary={`${index + 1}. Item`} />
+        </ListItemButton>
+      </ListItem>
+    );
+  }
 
   const formik = useFormik({
     initialValues: {
@@ -202,6 +226,20 @@ export const CalculateForm = () => {
             <TitleCss component="h2">
               Your recommended daily calorie intake is
             </TitleCss>
+            <KcalValueTextCss>
+              {Math.round(dailyRate)} <span>kcal</span>
+            </KcalValueTextCss>
+
+            <div>Foods you should not eats</div>
+            <FixedSizeList
+              height={130}
+              width={330}
+              itemSize={32}
+              itemCount={notAllowedProducts.length}
+              overscanCount={5}
+            >
+              {renderRow}
+            </FixedSizeList>
           </ModalBoxContentCss>
         </ModalCss>
       ) : (

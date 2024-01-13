@@ -16,7 +16,7 @@ export const theme = createTheme({
     },
     secondary: {
       main: '#f44336',
-      accent: '#FC842D80',
+      accent: '#264061',
     },
   },
 

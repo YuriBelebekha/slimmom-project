@@ -12,6 +12,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
+import { dailyRateReducer } from './dailyRate/dailyRateSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -19,9 +20,16 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
+const dailyRatePersistConfig = {
+  key: 'dailyRate',
+  storage,
+  whitelist: ['dailyRate', 'notAllowedProducts'],
+};
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
+    dailyRate: persistReducer(dailyRatePersistConfig, dailyRateReducer),
   },
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware({

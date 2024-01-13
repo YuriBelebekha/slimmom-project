@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { dailyRate } from './dailyRateOperations';
+import { getDailyRate } from './dailyRateOperations';
 
 const dailyRateInitialState = {
   dailyRate: null,
@@ -12,12 +12,12 @@ export const dailyRateSlice = createSlice({
 
   extraReducers: builder => {
     builder
-      .addCase(dailyRate.pending, (state, _) => state)
-      .addCase(dailyRate.fulfilled, (state, { payload }) => {
+      .addCase(getDailyRate.pending, (state, _) => state)
+      .addCase(getDailyRate.fulfilled, (state, { payload }) => {
         state.dailyRate = payload.dailyRate;
         state.notAllowedProducts = payload.notAllowedProducts;
       })
-      .addCase(dailyRate.rejected, (state, _) => state);
+      .addCase(getDailyRate.rejected, (state, _) => state);
   },
 });
 
