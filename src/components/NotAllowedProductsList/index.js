@@ -1,0 +1,1 @@
+export { NotAllowedProductsList } from './NotAllowedProductsList';

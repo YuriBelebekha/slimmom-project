@@ -18,7 +18,6 @@ export const SectionCss = styled(Box)`
 `;
 
 export const TitleCss = styled(Typography)`
-  text-align: center;
   margin-bottom: 42px;
   text-align: left;
 
@@ -227,22 +226,5 @@ export const KeyboardReturnIconWrapperCss = styled(Box)`
 
   ${theme.breakpoints.up('tablet')} {
     display: none;
-  }
-`;
-
-export const KcalValueTextCss = styled(Typography)`
-  margin-bottom: 32px;
-
-  font-family: VerdanaBold;
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 68px;
-  letter-spacing: 0.04em;
-  color: ${theme.palette.secondary.accent};
-  text-align: center;
-
-  & span {
-    font-size: 16px;
-    line-height: 19px;
   }
 `;
