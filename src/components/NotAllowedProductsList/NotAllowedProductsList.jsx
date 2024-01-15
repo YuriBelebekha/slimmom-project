@@ -1,4 +1,3 @@
-// import { Virtuoso } from 'react-virtuoso';
 import React from 'react';
 import { useDailyRate } from 'hooks';
 import {
