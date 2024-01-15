@@ -1,5 +1,5 @@
 import { Virtuoso } from 'react-virtuoso';
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import styled from '@emotion/styled';
 import { theme } from '../../constants/theme';
 
@@ -18,12 +18,26 @@ export const TitleCss = styled(Typography)`
 `;
 
 export const VirtuosoCss = styled(Virtuoso)`
-  font-family: VerdanaRegular;
   font-size: 14px;
   line-height: 34px;
   color: ${theme.palette.primary.darkGrey};
+`;
+
+export const VirtuosoBoxCss = styled(Box)`
+  &&::-webkit-scrollbar {
+    width: 6px;
+  }
 
   &&::-webkit-scrollbar-track {
-    background-color: #f0f1f3;
+    background: ${theme.palette.primary.lightGrey};
+  }
+
+  &&::-webkit-scrollbar-thumb {
+    height: 40px;
+    background: ${theme.palette.secondary.accent};
+  }
+
+  &&::-webkit-scrollbar-thumb:hover {
+    background: ${theme.palette.primary.accent};
   }
 `;

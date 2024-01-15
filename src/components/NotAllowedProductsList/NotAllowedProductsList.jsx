@@ -1,7 +1,11 @@
 // import { Virtuoso } from 'react-virtuoso';
 import React from 'react';
 import { useDailyRate } from 'hooks';
-import { TitleCss, VirtuosoCss } from './NotAllowedProductsList.styled';
+import {
+  TitleCss,
+  VirtuosoCss,
+  VirtuosoBoxCss,
+} from './NotAllowedProductsList.styled';
 
 export const NotAllowedProductsList = () => {
   const {
@@ -10,11 +14,10 @@ export const NotAllowedProductsList = () => {
 
   const Scroller = React.forwardRef(({ style, ...props }, ref) => {
     return (
-      <div
+      <VirtuosoBoxCss
+        data-virtuoso
         style={{
           ...style,
-          border: '1px solid orange',
-          overflow: 'scroll',
         }}
         ref={ref}
         {...props}
