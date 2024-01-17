@@ -93,8 +93,6 @@ export const CalculateForm = () => {
     dailyRate: { isLoading },
   } = useDailyRate();
 
-  console.log(isLoading);
-
   return (
     <SectionCss component="section">
       {isLoading ? <LinearIndeterminate /> : <></>}
