@@ -14,11 +14,11 @@ export const TitleCss = styled(Typography)`
   color: ${theme.palette.primary.main};
 
   ${theme.breakpoints.up('tablet')} {
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 
-    font-size: 34px;
-    line-height: 48px;
-    text-align: left;
+    font-size: 26px;
+    line-height: 36px;
+    text-align: center;
   }
 `;
 

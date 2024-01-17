@@ -204,9 +204,10 @@ export const ModalBoxContentCss = styled(Box)`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 510px;
-    height: 570px;
-    padding: 64px 80px;
+    width: 330px;
+    height: 430px;
+    margin-top: 0;
+    padding: 64px 170px 110px;
   }
 `;
 
@@ -227,4 +228,15 @@ export const KeyboardReturnIconWrapperCss = styled(Box)`
   ${theme.breakpoints.up('tablet')} {
     display: none;
   }
+`;
+
+export const CloseIconWrapperCss = styled(Box)`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+`;
+
+export const CloseButtonCss = styled(Button)`
+  min-width: 24px;
+  padding: 0;
 `;

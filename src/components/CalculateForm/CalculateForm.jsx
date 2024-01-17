@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { getDailyRate } from 'redux/dailyRate/dailyRateOperations';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
+import CloseIcon from '@mui/icons-material/Close';
 
 import { RadioGroup, Radio, FormControlLabel, FormLabel } from '@mui/material';
 import {
@@ -18,11 +19,15 @@ import {
   ModalCss,
   ModalBoxContentCss,
   KeyboardReturnIconWrapperCss,
+  CloseIconWrapperCss,
+  CloseButtonCss,
 } from './CalculateForm.styled';
 import { DailyCalorieIntake } from '../DailyCalorieIntake';
 import { NotAllowedProductsList } from '../NotAllowedProductsList';
 import LinearIndeterminate from '../ProgressLine/ProgressLine';
 import { useDailyRate } from 'hooks';
+import { useScreenSize } from '../../hooks/useScreenSize';
+import { theme } from '../../constants/theme';
 
 const calculateFormValidationSchema = yup.object().shape({
   height: yup
@@ -56,6 +61,7 @@ const calculateFormValidationSchema = yup.object().shape({
 
 export const CalculateForm = () => {
   const dispatch = useDispatch();
+  const screenSize = useScreenSize();
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -73,7 +79,6 @@ export const CalculateForm = () => {
     validationSchema: calculateFormValidationSchema,
 
     onSubmit: (values, { resetForm, setSubmitting }) => {
-      // console.log(values);
       const payload = {
         height: values.height,
         age: values.age,
@@ -200,9 +205,17 @@ export const CalculateForm = () => {
           aria-describedby="modal-modal-description"
         >
           <ModalBoxContentCss>
-            <KeyboardReturnIconWrapperCss>
-              <KeyboardReturnIcon />
-            </KeyboardReturnIconWrapperCss>
+            {screenSize.width < theme.breakpoints.values.tablet ? (
+              <KeyboardReturnIconWrapperCss>
+                <KeyboardReturnIcon />
+              </KeyboardReturnIconWrapperCss>
+            ) : (
+              <CloseIconWrapperCss>
+                <CloseButtonCss type="button" onClick={handleClose}>
+                  <CloseIcon />
+                </CloseButtonCss>
+              </CloseIconWrapperCss>
+            )}
 
             <DailyCalorieIntake />
 
