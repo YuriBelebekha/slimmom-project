@@ -9,8 +9,6 @@ export const getDailyRate = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/daily-rate', userData);
-      console.log(data); // delete
-      toast.success('Success!', ToastOptions);
       return data;
     } catch (error) {
       toast.warning('Something went wrong', ToastOptions);

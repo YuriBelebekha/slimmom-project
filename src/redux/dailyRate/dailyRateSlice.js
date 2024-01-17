@@ -4,6 +4,7 @@ import { getDailyRate } from './dailyRateOperations';
 const dailyRateInitialState = {
   dailyRate: null,
   notAllowedProducts: [],
+  isLoading: false,
 };
 
 export const dailyRateSlice = createSlice({
@@ -12,10 +13,13 @@ export const dailyRateSlice = createSlice({
 
   extraReducers: builder => {
     builder
-      .addCase(getDailyRate.pending, (state, _) => state)
+      .addCase(getDailyRate.pending, (state, _) => {
+        state.isLoading = true;
+      })
       .addCase(getDailyRate.fulfilled, (state, { payload }) => {
         state.dailyRate = payload.dailyRate;
         state.notAllowedProducts = payload.notAllowedProducts;
+        state.isLoading = false;
       })
       .addCase(getDailyRate.rejected, (state, _) => state);
   },

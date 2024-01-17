@@ -1,5 +1,5 @@
 import { Virtuoso } from 'react-virtuoso';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Button } from '@mui/material';
 import styled from '@emotion/styled';
 import { theme } from '../../constants/theme';
 
@@ -36,8 +36,33 @@ export const VirtuosoBoxCss = styled(Box)`
     height: 40px;
     background: ${theme.palette.secondary.accent};
   }
+`;
 
-  &&::-webkit-scrollbar-thumb:hover {
-    background: ${theme.palette.primary.accent};
+export const BtnBoxCss = styled(Box)`
+  display: flex;
+  justify-content: center;
+`;
+
+export const ButtonSubmitCss = styled(Button)`
+  min-width: 180px;
+  padding: 13px 22px;
+  margin-top: 40px;
+
+  font-family: verdanaBold;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+  color: ${theme.palette.primary.white};
+
+  background-color: ${({ theme }) => theme.palette.primary.accent};
+  border-radius: 30px;
+  box-shadow: 0px 4px 10px 0px ${theme.palette.primary.accent};
+
+  &:hover,
+  &:focus {
+    background-color: ${({ theme }) => theme.palette.primary.accent};
+    box-shadow: 0px 2px 5px 0px ${theme.palette.primary.accent};
   }
 `;

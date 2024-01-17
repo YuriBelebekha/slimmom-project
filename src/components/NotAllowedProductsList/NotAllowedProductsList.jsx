@@ -1,9 +1,12 @@
 import React from 'react';
 import { useDailyRate } from 'hooks';
+import { NavLink } from 'react-router-dom';
 import {
   TitleCss,
   VirtuosoCss,
   VirtuosoBoxCss,
+  ButtonSubmitCss,
+  BtnBoxCss,
 } from './NotAllowedProductsList.styled';
 
 export const NotAllowedProductsList = () => {
@@ -39,6 +42,12 @@ export const NotAllowedProductsList = () => {
         )}
         components={{ Scroller }}
       />
+
+      <BtnBoxCss>
+        <NavLink to="/registration">
+          <ButtonSubmitCss type="button">Start losing weight</ButtonSubmitCss>
+        </NavLink>
+      </BtnBoxCss>
     </>
   );
 };

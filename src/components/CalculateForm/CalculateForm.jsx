@@ -19,9 +19,10 @@ import {
   ModalBoxContentCss,
   KeyboardReturnIconWrapperCss,
 } from './CalculateForm.styled';
-// import { ButtonSubmit } from '../ButtonSubmit/ButtonSubmit';
 import { DailyCalorieIntake } from '../DailyCalorieIntake';
 import { NotAllowedProductsList } from '../NotAllowedProductsList';
+import LinearIndeterminate from '../ProgressLine/ProgressLine';
+import { useDailyRate } from 'hooks';
 
 const calculateFormValidationSchema = yup.object().shape({
   height: yup
@@ -88,11 +89,20 @@ export const CalculateForm = () => {
     },
   });
 
+  const {
+    dailyRate: { isLoading },
+  } = useDailyRate();
+
+  console.log(isLoading);
+
   return (
     <SectionCss component="section">
+      {isLoading ? <LinearIndeterminate /> : <></>}
+
       <TitleCss component="h1">
         Calculate your daily calorie intake right now
       </TitleCss>
+
       <FormCss onSubmit={formik.handleSubmit}>
         <InputWrapperCss>
           <InputGroupBoxCss>
@@ -182,8 +192,6 @@ export const CalculateForm = () => {
         <ButtonSubmitCss type="submit" onClick={handleOpen}>
           Start losing weight
         </ButtonSubmitCss>
-
-        {/* <ButtonSubmit name="Start losing weight" onClick={handleOpen} /> */}
       </FormCss>
 
       {formik.isValid && formik.isSubmitting ? (
