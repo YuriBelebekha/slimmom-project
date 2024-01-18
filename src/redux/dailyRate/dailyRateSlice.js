@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getDailyRate } from './dailyRateOperations';
+import { getDailyRate, getDailyRateByUserId } from './dailyRateOperations';
 
 const dailyRateInitialState = {
   dailyRate: null,
+  // userData: [],
   notAllowedProducts: [],
   isLoading: false,
+  summaries: [],
 };
 
 export const dailyRateSlice = createSlice({
@@ -12,16 +14,30 @@ export const dailyRateSlice = createSlice({
   initialState: dailyRateInitialState,
 
   extraReducers: builder => {
+    // Daily rate WITHOUT user id
     builder
       .addCase(getDailyRate.pending, (state, _) => {
         state.isLoading = true;
       })
       .addCase(getDailyRate.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
         state.dailyRate = payload.dailyRate;
         state.notAllowedProducts = payload.notAllowedProducts;
-        state.isLoading = false;
       })
       .addCase(getDailyRate.rejected, (state, _) => state);
+
+    // Daily rate WITH user id
+    builder
+      .addCase(getDailyRateByUserId.pending, (state, _) => {
+        state.isLoading = true;
+      })
+      .addCase(getDailyRateByUserId.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.dailyRate = payload.dailyRate;
+        state.notAllowedProducts = payload.notAllowedProducts;
+        state.summaries = payload.summaries;
+      })
+      .addCase(getDailyRateByUserId.rejected, (state, _) => state);
   },
 });
 

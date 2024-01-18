@@ -10,6 +10,7 @@ const RegistrationPage = lazy(() =>
   import('../pages/Registration/Registration')
 );
 const DiaryPage = lazy(() => import('../pages/Diary/Diary'));
+const CalculatorPage = lazy(() => import('../pages/Calculator/Calculator'));
 
 export const App = () => {
   return (
@@ -38,6 +39,13 @@ export const App = () => {
           path="/diary"
           element={
             <PrivateRoute redirectTo="/login" component={<DiaryPage />} />
+          }
+        />
+
+        <Route
+          path="/calculator"
+          element={
+            <PrivateRoute redirectTo="/" component={<CalculatorPage />} />
           }
         />
       </Route>
