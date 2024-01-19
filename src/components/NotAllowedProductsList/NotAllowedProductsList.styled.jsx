@@ -18,6 +18,7 @@ export const TitleCss = styled(Typography)`
 `;
 
 export const VirtuosoCss = styled(Virtuoso)`
+  font-family: VerdanaRegular;
   font-size: 14px;
   line-height: 34px;
   color: ${theme.palette.primary.darkGrey};
