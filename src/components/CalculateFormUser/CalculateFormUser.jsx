@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import * as React from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { getDailyRateByUserId } from 'redux/dailyRate/dailyRateOperations'; // change to getDailyRateUserId
+import { getDailyRateByUserId } from 'redux/dailyRate/dailyRateOperations';
 
 import { RadioGroup, Radio, FormControlLabel, FormLabel } from '@mui/material';
 import {
@@ -50,10 +50,6 @@ const calculateFormValidationSchema = yup.object().shape({
 
 export const CalculateFormUser = () => {
   const dispatch = useDispatch();
-
-  // const [open, setOpen] = React.useState(false);
-  // const handleOpen = () => setOpen(true);
-  // const handleClose = () => setOpen(false);
 
   const formik = useFormik({
     initialValues: {

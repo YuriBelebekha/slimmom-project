@@ -5,14 +5,19 @@ import {
   ListItemCss,
   ListItemTextCss,
 } from './DiaryUserSummary.styled';
-import { useDailyRate, useAuth } from 'hooks';
+import { getUserInfo } from '../../redux/userInfo/userInfoOperations';
+import { useDispatch } from 'react-redux';
+import { store } from '../../redux/store';
 
 export const DiaryUserSummary = () => {
-  const { dailyRate } = useDailyRate();
-  console.log(dailyRate);
+  const dispatch = useDispatch();
+  dispatch(getUserInfo()).finally(() => {});
 
-  const data = useAuth();
-  console.log(data);
+  const {
+    userInfo: { userData, days },
+  } = store.getState();
+  console.log(userData);
+  console.log(days);
 
   return (
     <WrapperCss>

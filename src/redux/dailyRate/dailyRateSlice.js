@@ -3,7 +3,6 @@ import { getDailyRate, getDailyRateByUserId } from './dailyRateOperations';
 
 const dailyRateInitialState = {
   dailyRate: null,
-  // userData: [],
   notAllowedProducts: [],
   isLoading: false,
   summaries: [],

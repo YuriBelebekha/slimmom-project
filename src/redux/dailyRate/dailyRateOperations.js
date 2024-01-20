@@ -3,8 +3,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import { ToastOptions } from 'services/toast-options';
 
-// import { useAuth } from 'hooks';
-
 // POST - '/daily-rate' - Get daily rate information based on your characteristics
 export const getDailyRate = createAsyncThunk(
   'dailyRate/fetchData',
