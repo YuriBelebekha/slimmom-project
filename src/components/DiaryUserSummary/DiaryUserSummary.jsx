@@ -5,23 +5,21 @@ import {
   ListItemCss,
   ListItemTextCss,
 } from './DiaryUserSummary.styled';
-import { getUserInfo } from '../../redux/userInfo/userInfoOperations';
-import { useDispatch } from 'react-redux';
 import { store } from '../../redux/store';
 
 export const DiaryUserSummary = () => {
-  const dispatch = useDispatch();
-  dispatch(getUserInfo()).finally(() => {});
-
   const {
     userInfo: { userData, days },
   } = store.getState();
   console.log(userData);
   console.log(days);
+  // console.log(days[0].daySummary.kcalLeft);
+
+  const selectedDate = '31.12.2020';
 
   return (
     <WrapperCss>
-      <TitleCss component="h3">Summary for 13.08.2023</TitleCss>
+      <TitleCss component="h3">Summary for {selectedDate}</TitleCss>
 
       <ListCss>
         <ListItemCss>
