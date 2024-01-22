@@ -76,7 +76,7 @@ export const MenuCss = styled(Menu)`
 
     & .MuiButtonBase-root {
       display: block;
-      padding: 0;
+      padding: 12px;
 
       text-align: center;
 
