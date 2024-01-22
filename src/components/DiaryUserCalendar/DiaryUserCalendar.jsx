@@ -17,14 +17,16 @@ import {
 } from './DiaryUserCalendar.styled';
 
 const currentDate = new Date();
-const getCurrentDate = currentDate.getDate();
-const getCurrentMonth = currentDate.getMonth() + 1;
-const getCurrentFullYear = currentDate.getFullYear();
+export let selectedDate = currentDate;
 
 export const DiaryUserCalendar = () => {
   const screenSize = useScreenSize();
   const dispatch = useDispatch();
   dispatch(getUserInfo()).finally(() => {});
+
+  const onAcceptDate = value => {
+    selectedDate = value;
+  };
 
   return (
     <>
@@ -32,9 +34,8 @@ export const DiaryUserCalendar = () => {
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <MobileDatePicker
             format="DD.MM.YYYY"
-            value={dayjs(
-              `${getCurrentFullYear}-${getCurrentMonth}-${getCurrentDate}`
-            )}
+            onAccept={onAcceptDate}
+            value={dayjs(selectedDate)}
           />
           <DateRangeIcon />
         </LocalizationProvider>

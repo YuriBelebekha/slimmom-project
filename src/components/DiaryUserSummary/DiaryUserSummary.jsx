@@ -6,6 +6,7 @@ import {
   ListItemTextCss,
 } from './DiaryUserSummary.styled';
 import { store } from '../../redux/store';
+// import { selectedDate } from '../DiaryUserCalendar/DiaryUserCalendar';
 
 export const DiaryUserSummary = () => {
   const {
@@ -15,11 +16,11 @@ export const DiaryUserSummary = () => {
   console.log(days);
   // console.log(days[0].daySummary.kcalLeft);
 
-  const selectedDate = '31.12.2020';
+  // const selectedDate = '31.12.2020';
 
   return (
     <WrapperCss>
-      <TitleCss component="h3">Summary for {selectedDate}</TitleCss>
+      <TitleCss component="h3">Summary for {}</TitleCss>
 
       <ListCss>
         <ListItemCss>
