@@ -1,61 +1,113 @@
+import dayjs from 'dayjs';
+
 import {
   WrapperCss,
   TitleCss,
   ListCss,
   ListItemCss,
   ListItemTextCss,
+  TextCss,
+  WrapperInnerCss,
 } from './DiaryUserSummary.styled';
 import { store } from '../../redux/store';
-// import { selectedDate } from '../DiaryUserCalendar/DiaryUserCalendar';
+import { selectedDate } from '../DiaryUserCalendar/DiaryUserCalendar';
+import { NotAllowedProductsList } from 'components/NotAllowedProductsList';
 
 export const DiaryUserSummary = () => {
   const {
-    userInfo: { userData, days },
+    userInfo: { days },
   } = store.getState();
-  console.log(userData);
-  console.log(days);
-  // console.log(days[0].daySummary.kcalLeft);
+  const allData = store.getState();
+  console.log(allData);
 
-  // const selectedDate = '31.12.2020';
+  const convertSelectedDate = dayjs(selectedDate).format('DD.MM.YYYY');
+
+  const userDaySummaryForDate = {
+    kcalLeft: '000',
+    kcalConsumed: '000',
+    dailyRate: '000',
+    percentsOfDailyRate: '000',
+  };
+
+  const userDaySummaryArray = days.map(value => {
+    if (dayjs(value.date).format('DD.MM.YYYY') === convertSelectedDate) {
+      const {
+        daySummary: { kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate },
+      } = value;
+
+      const userDaySummary = {
+        kcalLeft,
+        kcalConsumed,
+        dailyRate,
+        percentsOfDailyRate: Math.round(percentsOfDailyRate),
+      };
+      return userDaySummary;
+    } else {
+      return null;
+    }
+  });
+
+  userDaySummaryArray.forEach(value => {
+    if (value) {
+      userDaySummaryForDate.kcalLeft = value.kcalLeft;
+      userDaySummaryForDate.kcalConsumed = value.kcalConsumed;
+      userDaySummaryForDate.dailyRate = value.dailyRate;
+      userDaySummaryForDate.percentsOfDailyRate = value.percentsOfDailyRate;
+    }
+  });
+
+  const { kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate } =
+    userDaySummaryForDate;
 
   return (
     <WrapperCss>
-      <TitleCss component="h3">Summary for {}</TitleCss>
+      <div>
+        <TitleCss component="h3">Summary for {convertSelectedDate}</TitleCss>
 
-      <ListCss>
-        <ListItemCss>
-          <ListItemTextCss primary="Left" sx={{ width: '60%' }} />
-          <ListItemTextCss
-            primary="000"
-            sx={{ width: '28%', paddingRight: '7px', textAlign: 'right' }}
-          />
-          <ListItemTextCss primary="kcal" sx={{ width: '12%' }} />
-        </ListItemCss>
-        <ListItemCss>
-          <ListItemTextCss primary="Consumed" sx={{ width: '60%' }} />
-          <ListItemTextCss
-            primary="000"
-            sx={{ width: '28%', paddingRight: '7px', textAlign: 'right' }}
-          />
-          <ListItemTextCss primary="kcal" sx={{ width: '12%' }} />
-        </ListItemCss>
-        <ListItemCss>
-          <ListItemTextCss primary="Daily rate" sx={{ width: '60%' }} />
-          <ListItemTextCss
-            primary="000"
-            sx={{ width: '28%', paddingRight: '7px', textAlign: 'right' }}
-          />
-          <ListItemTextCss primary="kcal" sx={{ width: '12%' }} />
-        </ListItemCss>
-        <ListItemCss>
-          <ListItemTextCss primary="n% of normal" sx={{ width: '60%' }} />
-          <ListItemTextCss
-            primary="000"
-            sx={{ width: '28%', paddingRight: '7px', textAlign: 'right' }}
-          />
-          <ListItemTextCss primary="%" sx={{ width: '12%' }} />
-        </ListItemCss>
-      </ListCss>
+        <ListCss>
+          <ListItemCss>
+            <ListItemTextCss primary="Left" sx={{ width: '60%' }} />
+            <ListItemTextCss
+              primary={kcalLeft}
+              sx={{ width: '28%', paddingRight: '7px', textAlign: 'right' }}
+            />
+            <ListItemTextCss primary="kcal" sx={{ width: '12%' }} />
+          </ListItemCss>
+          <ListItemCss>
+            <ListItemTextCss primary="Consumed" sx={{ width: '60%' }} />
+            <ListItemTextCss
+              primary={kcalConsumed}
+              sx={{ width: '28%', paddingRight: '7px', textAlign: 'right' }}
+            />
+            <ListItemTextCss primary="kcal" sx={{ width: '12%' }} />
+          </ListItemCss>
+          <ListItemCss>
+            <ListItemTextCss primary="Daily rate" sx={{ width: '60%' }} />
+            <ListItemTextCss
+              primary={dailyRate}
+              sx={{ width: '28%', paddingRight: '7px', textAlign: 'right' }}
+            />
+            <ListItemTextCss primary="kcal" sx={{ width: '12%' }} />
+          </ListItemCss>
+          <ListItemCss>
+            <ListItemTextCss primary="n% of normal" sx={{ width: '60%' }} />
+            <ListItemTextCss
+              primary={percentsOfDailyRate}
+              sx={{ width: '28%', paddingRight: '7px', textAlign: 'right' }}
+            />
+            <ListItemTextCss primary="%" sx={{ width: '12%' }} />
+          </ListItemCss>
+        </ListCss>
+      </div>
+
+      {dailyRate !== '000' ? (
+        <NotAllowedProductsList />
+      ) : (
+        <WrapperInnerCss>
+          <TitleCss component="h3">Foods you should not eat</TitleCss>
+          <TextCss>Your diet will be displayed here</TextCss>
+        </WrapperInnerCss>
+      )}
     </WrapperCss>
   );
 };

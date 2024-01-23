@@ -3,6 +3,19 @@ import { Box, Typography, Button } from '@mui/material';
 import styled from '@emotion/styled';
 import { theme } from '../../constants/theme';
 
+export const WrapperCss = styled(Box)`
+  width: 280px;
+  z-index: 2;
+
+  ${theme.breakpoints.up('tablet')} {
+    width: 380px;
+  }
+
+  ${theme.breakpoints.up('desktop')} {
+    margin-left: 0;
+  }
+`;
+
 export const TitleCss = styled(Typography)`
   margin-bottom: 20px;
   padding-top: 20px;
@@ -18,6 +31,7 @@ export const TitleCss = styled(Typography)`
 `;
 
 export const VirtuosoCss = styled(Virtuoso)`
+  width: 100%;
   font-family: VerdanaRegular;
   font-size: 14px;
   line-height: 34px;

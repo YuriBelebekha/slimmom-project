@@ -194,20 +194,23 @@ export const ModalCss = styled(Modal)`
 `;
 
 export const ModalBoxContentCss = styled(Box)`
-  height: 100vh;
   margin-top: 120px;
   padding: 40px 20px 120px;
   background-color: ${theme.palette.primary.white};
+
+  ${theme.breakpoints.down('tablet')} {
+    height: 100vh;
+  }
 
   ${theme.breakpoints.up('tablet')} {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 330px;
-    height: 430px;
+    min-width: 672px;
+    min-height: 572px;
     margin-top: 0;
-    padding: 64px 170px 110px;
+    padding: 64px 170px 80px;
   }
 `;
 

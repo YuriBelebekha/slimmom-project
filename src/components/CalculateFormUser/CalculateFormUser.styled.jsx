@@ -8,6 +8,7 @@ export const SectionCss = styled(Box)`
 
   ${theme.breakpoints.up('tablet')} {
     max-width: 530px;
+    margin-top: 0;
   }
 `;
 

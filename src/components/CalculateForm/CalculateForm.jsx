@@ -100,7 +100,7 @@ export const CalculateForm = () => {
 
   return (
     <SectionCss component="section">
-      {isLoading ? <LinearIndeterminate /> : <></>}
+      {isLoading ? <LinearIndeterminate /> : null}
 
       <TitleCss component="h1">
         Calculate your daily calorie intake right now

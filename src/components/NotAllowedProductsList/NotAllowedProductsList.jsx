@@ -2,6 +2,7 @@ import React from 'react';
 import { useDailyRate } from 'hooks';
 import { NavLink } from 'react-router-dom';
 import {
+  WrapperCss,
   TitleCss,
   VirtuosoCss,
   VirtuosoBoxCss,
@@ -28,7 +29,7 @@ export const NotAllowedProductsList = () => {
   });
 
   return (
-    <>
+    <WrapperCss>
       <TitleCss component="h3">Foods you should not eats</TitleCss>
 
       <VirtuosoCss
@@ -48,6 +49,6 @@ export const NotAllowedProductsList = () => {
           <ButtonSubmitCss type="button">Start losing weight</ButtonSubmitCss>
         </NavLink>
       </BtnBoxCss>
-    </>
+    </WrapperCss>
   );
 };
