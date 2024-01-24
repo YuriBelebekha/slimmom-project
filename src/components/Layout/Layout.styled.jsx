@@ -24,6 +24,6 @@ export const ContainerCss = styled(Container)`
   }
 
   ${theme.breakpoints.up('desktop')} {
-    padding: 150px 16px 110px;
+    padding: 140px 16px 110px;
   }
 `;

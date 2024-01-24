@@ -96,7 +96,6 @@ export const InputWrapperCss = styled(Box)`
 
   ${theme.breakpoints.up('tablet')} {
     flex-direction: row;
-    margin-bottom: 38px;
   }
 `;
 
