@@ -39,7 +39,7 @@ export const DiarySearchProductForm = () => {
 
   const [productName, setProductName] = useState('');
   const [selectedProduct, setSelectedProduct] = useState('');
-  const [productId, setProductId] = useState('');
+  // const [productId, setProductId] = useState('');
 
   const handleInputChange = event => {
     setProductName(event.target.value);
@@ -73,9 +73,7 @@ export const DiarySearchProductForm = () => {
   console.log(selectedProduct);
 
   // const handleClose = (event, reason) => {
-  // console.log(foundProductsList);
-  // console.log(selectedProduct);
-  // console.log(reason);
+
   //   if (foundProductsList && selectedProduct) {
   //     foundProductsList.map(product => {
   //       console.log(product.title.en);
@@ -86,7 +84,7 @@ export const DiarySearchProductForm = () => {
   //     });
   //   }
   // };
-  console.log(selectedProduct, '-', productId);
+  // console.log(selectedProduct, '-');
 
   const formik = useFormik({
     initialValues: {
