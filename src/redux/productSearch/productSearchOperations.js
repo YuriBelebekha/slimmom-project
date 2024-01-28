@@ -9,12 +9,12 @@ axios.defaults.baseURL = `${process.env.REACT_APP_BASE_API_URL}`;
 export const getProductsFromList = createAsyncThunk(
   'product',
   async (search, { rejectWithValue }) => {
-    console.log(search);
+    // console.log(search);
     if (!search) return [];
 
     try {
       const { data } = await axios.get('/product', { params: { search } });
-      console.log(data);
+      // console.log(data);
       return data;
     } catch (error) {
       toast.warning('Product not found', ToastOptions);

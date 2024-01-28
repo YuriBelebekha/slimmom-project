@@ -35,14 +35,14 @@ export const DiarySearchProductForm = () => {
   const {
     products: { foundProductsList },
   } = store.getState();
-  // console.log(foundProductsList);
+  console.log(foundProductsList);
 
   const [productName, setProductName] = useState('');
   const [selectedProduct, setSelectedProduct] = useState('');
   const [productId, setProductId] = useState('');
 
-  const handleInputChange = e => {
-    setProductName(e.target.value);
+  const handleInputChange = event => {
+    setProductName(event.target.value);
   };
 
   // START. Debounce on inputs
@@ -64,7 +64,29 @@ export const DiarySearchProductForm = () => {
   const handleChange = (_event, value) => {
     setSelectedProduct(value);
   };
+
+  function capitalizeFirstLetter(string) {
+    return string[0].toUpperCase() + string.slice(1);
+  }
+
+  console.log(foundProductsList);
   console.log(selectedProduct);
+
+  // const handleClose = (event, reason) => {
+  // console.log(foundProductsList);
+  // console.log(selectedProduct);
+  // console.log(reason);
+  //   if (foundProductsList && selectedProduct) {
+  //     foundProductsList.map(product => {
+  //       console.log(product.title.en);
+  //       console.log(selectedProduct);
+  //       return product.title.en.toLowerCase() === selectedProduct.toLowerCase()
+  //         ? setProductId(product._id)
+  //         : setProductId('');
+  //     });
+  //   }
+  // };
+  console.log(selectedProduct, '-', productId);
 
   const formik = useFormik({
     initialValues: {
@@ -97,14 +119,14 @@ export const DiarySearchProductForm = () => {
           freeSolo
           id="search"
           disableClearable
+          value={selectedProduct}
           onInputChange={debouncedResults}
           onChange={handleChange}
-          options={foundProductsList.map(option => option.title.en)}
-          renderOption={(props, option, state, ownerState) => {
-            // console.log('props: ', props);
-            // console.log('option: ', option);
-            // console.log('state: ', state);
-            // console.log('ownerState: ', ownerState);
+          // onClose={handleClose}
+          options={foundProductsList.map(option =>
+            capitalizeFirstLetter(option.title.en)
+          )}
+          renderOption={(props, option) => {
             return (
               <li {...props} key={props.id}>
                 {option}
