@@ -16,8 +16,6 @@ export const userInfoSlice = createSlice({
       .addCase(getUserInfo.fulfilled, (state, { payload }) => {
         state.userData = payload.userData;
         state.days = payload.days;
-        // console.log(state.userData);
-        // console.log(state.days);
       })
       .addCase(getUserInfo.rejected, (state, _) => state);
   },

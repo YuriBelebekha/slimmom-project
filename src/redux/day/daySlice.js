@@ -1,22 +1,41 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addProductForDay } from './dayOperations';
+import {
+  dayData,
+  deleteEatenProductForDate,
+  getInfoForDay,
+} from './dayOperations';
 
-const userInfoInitialState = {
+const dayInitialState = {
+  dayAllData: null,
   date: null,
-  productId: null,
-  weight: null,
 };
 
-export const userInfoSlice = createSlice({
-  name: 'userInfo',
-  initialState: userInfoInitialState,
+export const daySlice = createSlice({
+  name: 'day',
+  initialState: dayInitialState,
 
   extraReducers: builder => {
     builder
-      .addCase(addProductForDay.pending, (state, _) => state)
-      .addCase(addProductForDay.fulfilled, (state, { payload }) => {})
-      .addCase(addProductForDay.rejected, (state, _) => state);
+      // addProduct
+      .addCase(dayData.pending, (state, _action) => state)
+      .addCase(dayData.fulfilled, (state, { payload }) => {
+        state.dayAllData = payload;
+      })
+      .addCase(dayData.rejected, (state, _action) => state)
+
+      // deleteProduct
+      .addCase(deleteEatenProductForDate.pending, (state, _action) => state)
+      .addCase(deleteEatenProductForDate.fulfilled, (state, { payload }) => {})
+      .addCase(deleteEatenProductForDate.rejected, (state, _action) => state)
+
+      // getInfoForDay
+      .addCase(getInfoForDay.pending, (state, _action) => state)
+      .addCase(getInfoForDay.fulfilled, (state, { payload }) => {
+        console.log(payload);
+        state.date = payload.date; // ????????????????????????????
+      })
+      .addCase(getInfoForDay.rejected, (state, _action) => state);
   },
 });
 
-export const userInfoReducer = userInfoSlice.reducer;
+export const dayReducer = daySlice.reducer;

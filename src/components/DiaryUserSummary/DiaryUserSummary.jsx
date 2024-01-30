@@ -17,8 +17,8 @@ export const DiaryUserSummary = () => {
   const {
     userInfo: { days },
   } = store.getState();
-  const allData = store.getState();
-  console.log(allData);
+  // const allData = store.getState();
+  // console.log(allData);
 
   const convertSelectedDate = dayjs(selectedDate).format('DD.MM.YYYY');
 
