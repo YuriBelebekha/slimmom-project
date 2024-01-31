@@ -10,7 +10,7 @@ const Login = () => {
 
       <LoginForm />
     </HelmetProvider>
-  )
+  );
 };
 
 export default Login;

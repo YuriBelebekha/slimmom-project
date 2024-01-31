@@ -7,7 +7,11 @@ import {
 
 const dayInitialState = {
   dayAllData: null,
+  // getInfoForDay: null,
+  id: null,
   date: null,
+  daySummary: {},
+  eatenProducts: [],
 };
 
 export const daySlice = createSlice({
@@ -32,7 +36,10 @@ export const daySlice = createSlice({
       .addCase(getInfoForDay.pending, (state, _action) => state)
       .addCase(getInfoForDay.fulfilled, (state, { payload }) => {
         console.log(payload);
-        state.date = payload.date; // ????????????????????????????
+        state.id = payload.id;
+        state.date = payload.date;
+        state.daySummary = payload.daySummary;
+        state.eatenProducts = payload.eatenProducts;
       })
       .addCase(getInfoForDay.rejected, (state, _action) => state);
   },

@@ -8,7 +8,8 @@ import { useDispatch } from 'react-redux';
 import { DiarySearchProductMobile } from '../DiarySearchProductMobile';
 import { DiarySearchProduct } from '../DiarySearchProduct/DiarySearchProduct';
 import { useScreenSize } from '../../hooks/useScreenSize';
-import { getUserInfo } from '../../redux/userInfo/userInfoOperations';
+// import { getUserInfo } from '../../redux/userInfo/userInfoOperations';
+import { getInfoForDay } from 'redux/day/dayOperations';
 import { theme } from '../../constants/theme';
 
 import {
@@ -22,10 +23,13 @@ export let selectedDate = currentDate;
 export const DiaryUserCalendar = () => {
   const screenSize = useScreenSize();
   const dispatch = useDispatch();
-  dispatch(getUserInfo()).finally(() => {});
+  // dispatch(getUserInfo()).finally(() => {});
 
   const onAcceptDate = value => {
     selectedDate = value;
+
+    const convertSelectedDate = dayjs(selectedDate).format('YYYY-MM-DD');
+    dispatch(getInfoForDay({ date: String(convertSelectedDate) }));
   };
 
   return (

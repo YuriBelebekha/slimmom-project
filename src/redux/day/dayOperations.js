@@ -39,7 +39,7 @@ export const getInfoForDay = createAsyncThunk(
   async (date, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/day/info', date);
-      console.log(data);
+      // console.log(data);
       return data;
     } catch (error) {
       toast.warning('Something went wrong', ToastOptions);

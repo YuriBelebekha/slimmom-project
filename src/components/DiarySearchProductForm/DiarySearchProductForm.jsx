@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import debounce from 'lodash.debounce';
 import { getProductsFromList } from 'redux/productSearch/productSearchOperations';
-import { dayData, getInfoForDay } from 'redux/day/dayOperations';
+import { dayData } from 'redux/day/dayOperations';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import dayjs from 'dayjs';
@@ -32,18 +32,18 @@ const searchProductFormValidationSchema = yup.object().shape({
 });
 
 export const DiarySearchProductForm = () => {
-  const convertSelectedDate = dayjs(selectedDate).format('YYYY-MM-DD');
-  console.log(convertSelectedDate);
-
   const dispatch = useDispatch();
   const screenSize = useScreenSize();
+
+  const convertSelectedDate = dayjs(selectedDate).format('YYYY-MM-DD');
+  // console.log(convertSelectedDate);
 
   const {
     products: { foundProductsList },
   } = store.getState();
   // console.log(foundProductsList);
-  const allData = store.getState();
-  console.log(allData);
+  // const allData = store.getState();
+  // console.log(allData);
 
   const [productName, setProductName] = useState('');
   const [selectedProduct, setSelectedProduct] = useState('');
@@ -60,7 +60,6 @@ export const DiarySearchProductForm = () => {
 
   useEffect(() => {
     dispatch(getProductsFromList(productName));
-    dispatch(getInfoForDay({ date: '2024-01-29' })); // ?????????????????????
 
     return () => {
       debouncedResults.cancel();
