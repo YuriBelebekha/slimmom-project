@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 
 import { DiarySearchProductMobile } from '../DiarySearchProductMobile';
 import { DiarySearchProduct } from '../DiarySearchProduct/DiarySearchProduct';
+import { DiaryEatenProductsList } from '../DairyEatenProductsList/DairyEatenProductsList';
 import { useScreenSize } from '../../hooks/useScreenSize';
 // import { getUserInfo } from '../../redux/userInfo/userInfoOperations';
 import { getInfoForDay } from 'redux/day/dayOperations';
@@ -52,6 +53,8 @@ export const DiaryUserCalendar = () => {
           <DiarySearchProduct />
         )}
       </DiaryListProductsBoxCss>
+
+      <DiaryEatenProductsList />
     </>
   );
 };

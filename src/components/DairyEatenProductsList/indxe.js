@@ -1,0 +1,1 @@
+export { DairyEatenProductsList } from './DairyEatenProductsList';

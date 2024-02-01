@@ -14,8 +14,12 @@ import { VisuallyHidden } from '../VisuallyHidden';
 import { ButtonSubmit } from '../ButtonSubmit/ButtonSubmit';
 import { selectedDate } from '../DiaryUserCalendar/DiaryUserCalendar';
 
-import { Box, Autocomplete } from '@mui/material';
-import { FormCss, TextFieldCss } from './DiarySearchProductForm.styled';
+import { Box } from '@mui/material';
+import {
+  FormCss,
+  AutocompleteCss,
+  TextFieldCss,
+} from './DiarySearchProductForm.styled';
 
 const searchProductFormValidationSchema = yup.object().shape({
   // search: yup
@@ -112,7 +116,7 @@ export const DiarySearchProductForm = () => {
       <VisuallyHidden component="h2">Search Product Form</VisuallyHidden>
 
       <FormCss onSubmit={formik.handleSubmit}>
-        <Autocomplete
+        <AutocompleteCss
           freeSolo
           id="search"
           disableClearable
@@ -126,7 +130,7 @@ export const DiarySearchProductForm = () => {
           renderOption={(props, option) => {
             return (
               <li {...props} key={props.id}>
-                {option}
+                <TextFieldCss>{option}</TextFieldCss>
               </li>
             );
           }}

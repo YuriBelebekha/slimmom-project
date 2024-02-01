@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { TextField } from '@mui/material';
+import { Autocomplete, TextField } from '@mui/material';
 import { theme } from '../../constants/theme';
 
 export const FormCss = styled.form`
@@ -59,5 +59,15 @@ export const TextFieldCss = styled(TextField)`
       width: 106px;
       margin-right: 85px;
     }
+  }
+`;
+
+export const AutocompleteCss = styled(Autocomplete)`
+  & input#search {
+    padding: 4px 0 5px;
+  }
+
+  .MuiInputBase-root {
+    padding: 0;
   }
 `;
