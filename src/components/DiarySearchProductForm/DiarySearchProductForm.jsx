@@ -130,7 +130,7 @@ export const DiarySearchProductForm = () => {
           renderOption={(props, option) => {
             return (
               <li {...props} key={props.id}>
-                <TextFieldCss>{option}</TextFieldCss>
+                {option}
               </li>
             );
           }}
