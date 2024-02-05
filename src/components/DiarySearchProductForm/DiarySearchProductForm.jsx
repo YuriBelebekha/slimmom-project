@@ -136,9 +136,6 @@ export const DiarySearchProductForm = () => {
               }}
             />
           )}
-          ListboxProps={{
-            className: 'myCustomList',
-          }}
         />
 
         <TextFieldCss
