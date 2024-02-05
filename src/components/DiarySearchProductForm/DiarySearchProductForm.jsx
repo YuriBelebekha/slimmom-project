@@ -14,12 +14,8 @@ import { VisuallyHidden } from '../VisuallyHidden';
 import { ButtonSubmit } from '../ButtonSubmit/ButtonSubmit';
 import { selectedDate } from '../DiaryUserCalendar/DiaryUserCalendar';
 
-import { Box } from '@mui/material';
-import {
-  FormCss,
-  AutocompleteCss,
-  TextFieldCss,
-} from './DiarySearchProductForm.styled';
+import { Autocomplete, Box } from '@mui/material';
+import { FormCss, TextFieldCss } from './DiarySearchProductForm.styled';
 
 const searchProductFormValidationSchema = yup.object().shape({
   // search: yup
@@ -40,12 +36,10 @@ export const DiarySearchProductForm = () => {
   const screenSize = useScreenSize();
 
   const convertSelectedDate = dayjs(selectedDate).format('YYYY-MM-DD');
-  // console.log(convertSelectedDate);
 
   const {
     products: { foundProductsList },
   } = store.getState();
-  // console.log(foundProductsList);
   // const allData = store.getState();
   // console.log(allData);
 
@@ -53,11 +47,10 @@ export const DiarySearchProductForm = () => {
   const [selectedProduct, setSelectedProduct] = useState('');
   const [productId, setProductId] = useState('');
 
-  const handleInputChange = (event, _value, reason) => {
+  const handleInputChange = (event, _value) => {
     setProductName(event.target.value);
   };
 
-  // START. Debounce on inputs
   const debouncedResults = useMemo(() => {
     return debounce(handleInputChange, 500);
   }, []);
@@ -69,7 +62,6 @@ export const DiarySearchProductForm = () => {
       debouncedResults.cancel();
     };
   });
-  // END. Debounce on inputs
 
   const handleChange = (_event, value, reason) => {
     reason === 'selectOption'
@@ -116,14 +108,13 @@ export const DiarySearchProductForm = () => {
       <VisuallyHidden component="h2">Search Product Form</VisuallyHidden>
 
       <FormCss onSubmit={formik.handleSubmit}>
-        <AutocompleteCss
+        <Autocomplete
           freeSolo
           id="search"
           disableClearable
           value={selectedProduct}
           onInputChange={debouncedResults}
           onChange={handleChange}
-          // onClose={handleClose}
           options={foundProductsList.map(option =>
             capitalizeFirstLetter(option.title.en)
           )}
@@ -137,6 +128,7 @@ export const DiarySearchProductForm = () => {
           renderInput={params => (
             <TextFieldCss
               {...params}
+              variant="standard"
               label="Enter product name"
               InputProps={{
                 ...params.InputProps,
@@ -144,6 +136,9 @@ export const DiarySearchProductForm = () => {
               }}
             />
           )}
+          ListboxProps={{
+            className: 'myCustomList',
+          }}
         />
 
         <TextFieldCss

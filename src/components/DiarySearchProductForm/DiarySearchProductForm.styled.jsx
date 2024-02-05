@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Autocomplete, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
 import { theme } from '../../constants/theme';
 
 export const FormCss = styled.form`
@@ -15,6 +15,7 @@ export const FormCss = styled.form`
 
 export const TextFieldCss = styled(TextField)`
   width: 280px;
+  height: 70px;
   padding: 4px 0;
   margin-bottom: 32px;
 
@@ -41,6 +42,7 @@ export const TextFieldCss = styled(TextField)`
     line-height: 17px;
     letter-spacing: 0.04em;
     background: transparent;
+    height: 30px;
   }
 
   & .MuiFormHelperText-root {
@@ -59,15 +61,5 @@ export const TextFieldCss = styled(TextField)`
       width: 106px;
       margin-right: 85px;
     }
-  }
-`;
-
-export const AutocompleteCss = styled(Autocomplete)`
-  & input#search {
-    padding: 4px 0 5px;
-  }
-
-  .MuiInputBase-root {
-    padding: 0;
   }
 `;
