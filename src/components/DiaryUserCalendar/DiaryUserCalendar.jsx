@@ -25,12 +25,24 @@ export const DiaryUserCalendar = () => {
   const screenSize = useScreenSize();
   const dispatch = useDispatch();
   // dispatch(getUserInfo()).finally(() => {});
+  let infoForDay;
 
   const onAcceptDate = value => {
     selectedDate = value;
 
     const convertSelectedDate = dayjs(selectedDate).format('YYYY-MM-DD');
-    dispatch(getInfoForDay({ date: String(convertSelectedDate) }));
+    infoForDay = dispatch(
+      getInfoForDay({ date: String(convertSelectedDate) })
+    ).then(arg => {
+      return arg.payload;
+    });
+
+    const result = async () => {
+      const a = await infoForDay;
+      console.log(a);
+    };
+
+    result();
   };
 
   return (
@@ -54,7 +66,7 @@ export const DiaryUserCalendar = () => {
         )}
       </DiaryListProductsBoxCss>
 
-      <DiaryEatenProductsList />
+      <DiaryEatenProductsList props={infoForDay} />
     </>
   );
 };

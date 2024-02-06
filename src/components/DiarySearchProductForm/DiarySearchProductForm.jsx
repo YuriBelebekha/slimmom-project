@@ -94,7 +94,7 @@ export const DiarySearchProductForm = () => {
         productId: productId,
         weight: Number(values.weight),
       };
-      console.log(payload);
+      // console.log(payload);
       dispatch(dayData(payload)).finally(() => {
         setSubmitting(false);
       });

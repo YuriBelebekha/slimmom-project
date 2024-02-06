@@ -35,7 +35,7 @@ export const daySlice = createSlice({
       // getInfoForDay
       .addCase(getInfoForDay.pending, (state, _action) => state)
       .addCase(getInfoForDay.fulfilled, (state, { payload }) => {
-        console.log(payload);
+        // console.log(payload);
         state.id = payload.id;
         state.date = payload.date;
         state.daySummary = payload.daySummary;
