@@ -31,11 +31,15 @@ const searchProductFormValidationSchema = yup.object().shape({
     .required('Weight is required'),
 });
 
+function convertDate(date) {
+  return String(dayjs(date).format('YYYY-MM-DD'));
+}
+
 export const DiarySearchProductForm = () => {
   const dispatch = useDispatch();
   const screenSize = useScreenSize();
 
-  const convertSelectedDate = dayjs(selectedDate).format('YYYY-MM-DD');
+  const convertSelectedDate = convertDate(selectedDate);
 
   const {
     products: { foundProductsList },

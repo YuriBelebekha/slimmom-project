@@ -21,28 +21,39 @@ import {
 const currentDate = new Date();
 export let selectedDate = currentDate;
 
+function convertDate(date) {
+  return String(dayjs(date).format('YYYY-MM-DD'));
+}
+
+let day;
+
 export const DiaryUserCalendar = () => {
   const screenSize = useScreenSize();
   const dispatch = useDispatch();
   // dispatch(getUserInfo()).finally(() => {});
-  let infoForDay;
+
+  day = async () => {
+    return await dispatch(
+      getInfoForDay({ date: convertDate(selectedDate) })
+    ).then(arg => {
+      return arg.payload;
+    });
+  };
+
+  console.log(day());
 
   const onAcceptDate = value => {
     selectedDate = value;
 
-    const convertSelectedDate = dayjs(selectedDate).format('YYYY-MM-DD');
-    infoForDay = dispatch(
-      getInfoForDay({ date: String(convertSelectedDate) })
-    ).then(arg => {
-      return arg.payload;
-    });
-
-    const result = async () => {
-      const a = await infoForDay;
-      console.log(a);
+    day = async () => {
+      return await dispatch(
+        getInfoForDay({ date: convertDate(selectedDate) })
+      ).then(arg => {
+        return arg.payload;
+      });
     };
 
-    result();
+    console.log(day());
   };
 
   return (
@@ -66,7 +77,7 @@ export const DiaryUserCalendar = () => {
         )}
       </DiaryListProductsBoxCss>
 
-      <DiaryEatenProductsList props={infoForDay} />
+      <DiaryEatenProductsList />
     </>
   );
 };
