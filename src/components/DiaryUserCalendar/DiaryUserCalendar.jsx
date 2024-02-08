@@ -42,10 +42,10 @@ export const DiaryUserCalendar = () => {
   const getDay = async () => {
     const result = await getDayFetch;
     console.log('result in getDay: ', result);
-    return setDayInfo(result);
+    return result;
   };
 
-  // getDay();
+  getDay().finally(data => setDayInfo(data));
 
   console.log(dayInfo);
   // dispatch(getUserInfo()).finally(() => {});
