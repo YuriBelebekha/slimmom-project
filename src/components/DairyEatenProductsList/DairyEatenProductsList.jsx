@@ -1,19 +1,9 @@
-// import { useEffect } from 'react';
-import { store } from '../../redux/store';
-
-export const DiaryEatenProductsList = () => {
-  const {
-    day: { date },
-  } = store.getState();
-  // console.log(store.getState());
-
-  // useEffect(() => {
-  //   return () => {};
-  // });
+export const DiaryEatenProductsList = props => {
+  console.log(props.day);
 
   return (
     <>
-      <div>{date}</div>
+      <div>{props.day.date}</div>
     </>
   );
 };
