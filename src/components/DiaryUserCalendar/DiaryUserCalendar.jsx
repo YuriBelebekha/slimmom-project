@@ -27,7 +27,7 @@ function convertDate(date) {
 }
 
 export const DiaryUserCalendar = () => {
-  const [dayInfo, setDayInfo] = useState();
+  const [dayInfo, setDayInfo] = useState('');
   const screenSize = useScreenSize();
   const dispatch = useDispatch();
 
