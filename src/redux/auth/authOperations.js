@@ -61,19 +61,50 @@ export const refreshUser = createAsyncThunk(
   'auth/refresh',
   async (_, { rejectWithValue, getState }) => {
     const state = getState();
-    const persistedToken = state.auth.token;
 
-    if (persistedToken === null) {
+    const refreshToken = state.auth.refreshToken;
+    const sid = state.auth.sid;
+
+    console.log(refreshToken);
+    console.log(sid);
+
+    if (refreshToken === null) {
       return rejectWithValue();
     }
 
-    token.set(persistedToken);
+    token.set(refreshToken);
 
     try {
-      const { data } = await axios.post('/auth/refresh');
-      return data;
+      const { data: refreshData } = await axios.post('/auth/refresh', {
+        sid,
+      });
+
+      token.set(refreshData.newRefreshToken);
+
+      return refreshData;
     } catch (error) {
       return rejectWithValue(error.message);
     }
   }
 );
+
+// export const refreshUser = createAsyncThunk(
+//   'auth/refresh',
+//   async (_, { rejectWithValue, getState }) => {
+//     const state = getState();
+//     const persistedToken = state.auth.token;
+
+//     if (persistedToken === null) {
+//       return rejectWithValue();
+//     }
+
+//     token.set(persistedToken);
+
+//     try {
+//       const { data } = await axios.post('/auth/refresh');
+//       return data;
+//     } catch (error) {
+//       return rejectWithValue(error.message);
+//     }
+//   }
+// );

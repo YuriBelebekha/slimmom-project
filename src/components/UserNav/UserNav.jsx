@@ -24,6 +24,10 @@ export const UserNav = () => {
     user: { username },
   } = useAuth();
 
+  // const { refreshToken, sid } = useAuth();
+  // console.log(refreshToken);
+  // console.log(sid);
+
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };

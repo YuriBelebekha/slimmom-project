@@ -20,7 +20,13 @@ import { userInfoReducer } from './userInfo/userInfoSlice';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: [
+    'accessToken',
+    'refreshToken',
+    'sid',
+    // 'isLoggedIn',
+    'isRefreshing',
+  ],
 };
 
 const dailyRatePersistConfig = {
