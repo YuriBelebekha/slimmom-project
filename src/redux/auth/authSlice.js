@@ -5,8 +5,6 @@ const authInitialState = {
   user: { name: null, email: null },
   accessToken: null,
   refreshToken: null,
-  // newAccessToken: null,
-  // newRefreshToken: null,
   sid: null,
   isLoggedIn: false,
   isRefreshing: false,
@@ -32,13 +30,12 @@ export const authSlice = createSlice({
 
       // login
       .addCase(login.fulfilled, (state, { payload }) => {
-        // console.log(payload);
-        state.user = payload.user;
-        state.isLoggedIn = true;
-
         state.accessToken = payload.accessToken;
         state.refreshToken = payload.refreshToken;
         state.sid = payload.sid;
+
+        state.user = payload.user;
+        state.isLoggedIn = true;
       })
 
       // logout
@@ -52,17 +49,16 @@ export const authSlice = createSlice({
       })
 
       // refreshUser
-      .addCase(refreshUser.pending, (state, _) => {
+      .addCase(refreshUser.pending, (state, { payload }) => {
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, { payload }) => {
-        state.user = payload;
+        state.accessToken = payload.newAccessToken;
+        state.refreshToken = payload.newRefreshToken;
+        state.sid = payload.sid;
+
         state.isLoggedIn = true;
         state.isRefreshing = false;
-
-        state.accessToken = payload.accessToken;
-        state.refreshToken = payload.refreshToken;
-        state.sid = payload.sid;
       })
       .addCase(refreshUser.rejected, (state, _) => {
         state.isRefreshing = false;

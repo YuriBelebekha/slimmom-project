@@ -26,6 +26,7 @@ const authPersistConfig = {
     'sid',
     // 'isLoggedIn',
     'isRefreshing',
+    'user',
   ],
 };
 
@@ -35,10 +36,16 @@ const dailyRatePersistConfig = {
   whitelist: ['dailyRate', 'notAllowedProducts'],
 };
 
+// const dayInfoPersistConfig = {
+//   key: 'dayInfo',
+//   storage,
+//   whitelist: ['accessToken'],
+// };
+
 const userInfoPersistConfig = {
   key: 'userInfo',
   storage,
-  whitelist: ['token'],
+  whitelist: ['accessToken'],
 };
 
 export const store = configureStore({
@@ -47,6 +54,7 @@ export const store = configureStore({
     dailyRate: persistReducer(dailyRatePersistConfig, dailyRateReducer),
     products: productSearchReducer,
     day: dayReducer,
+    // day: persistReducer(dayInfoPersistConfig, dayReducer),
     userInfo: persistReducer(userInfoPersistConfig, userInfoReducer),
   },
   middleware: getDefaultMiddleware => [
