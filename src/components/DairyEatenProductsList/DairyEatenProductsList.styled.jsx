@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { theme } from '../../constants/theme';
 
 export const WrapperCss = styled(Box)`
-  width: 280px;
+  min-width: 260px;
   z-index: 2;
 
   ${theme.breakpoints.up('tablet')} {

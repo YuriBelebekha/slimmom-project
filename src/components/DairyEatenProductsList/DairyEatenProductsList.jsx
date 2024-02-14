@@ -1,4 +1,7 @@
 import React from 'react';
+
+import { List, ListItem, ListItemText, IconButton } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import {
   WrapperCss,
   VirtuosoCss,
@@ -19,6 +22,10 @@ export const DiaryEatenProductsList = props => {
       />
     );
   });
+  const {
+    day: { eatenProducts },
+  } = props;
+  console.log(eatenProducts);
 
   return (
     <WrapperCss>
@@ -26,10 +33,24 @@ export const DiaryEatenProductsList = props => {
 
       {props.day.date ? (
         <VirtuosoCss
-          style={{ height: '130px' }}
-          // data={props.day.eatenProducts.map(item => item)}
-          // totalCount={props.day.eatenProducts.length}
-          itemContent={index => <div>{index + 1}</div>}
+          style={{ height: '200px' }}
+          data={eatenProducts}
+          totalCount={eatenProducts.length}
+          itemContent={(_index, { title, weight, kcal }) => (
+            <List>
+              <ListItem
+                secondaryAction={
+                  <IconButton edge="end" aria-label="delete">
+                    <CloseIcon />
+                  </IconButton>
+                }
+              >
+                <ListItemText primary={title} />
+                <ListItemText primary={weight} secondary="gram" />
+                <ListItemText primary={Math.round(kcal)} secondary="kcal" />
+              </ListItem>
+            </List>
+          )}
           components={{ Scroller }}
         />
       ) : (

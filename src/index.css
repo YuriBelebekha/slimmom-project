@@ -52,6 +52,7 @@ Sections
 
 body {
   margin: 0;
+  overflow-x: hidden;
   /* Remove the margin in all browsers. */
 }
 
