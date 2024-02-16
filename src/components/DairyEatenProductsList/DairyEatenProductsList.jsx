@@ -25,7 +25,6 @@ export const DiaryEatenProductsList = props => {
   const {
     day: { eatenProducts },
   } = props;
-  console.log(eatenProducts);
 
   return (
     <WrapperCss>

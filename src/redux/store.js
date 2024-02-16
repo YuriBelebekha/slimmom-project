@@ -36,12 +36,6 @@ const dailyRatePersistConfig = {
   whitelist: ['dailyRate', 'notAllowedProducts'],
 };
 
-// const dayInfoPersistConfig = {
-//   key: 'dayInfo',
-//   storage,
-//   whitelist: ['accessToken'],
-// };
-
 const userInfoPersistConfig = {
   key: 'userInfo',
   storage,
@@ -54,7 +48,6 @@ export const store = configureStore({
     dailyRate: persistReducer(dailyRatePersistConfig, dailyRateReducer),
     products: productSearchReducer,
     day: dayReducer,
-    // day: persistReducer(dayInfoPersistConfig, dayReducer),
     userInfo: persistReducer(userInfoPersistConfig, userInfoReducer),
   },
   middleware: getDefaultMiddleware => [
