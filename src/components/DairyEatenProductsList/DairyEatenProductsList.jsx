@@ -1,11 +1,15 @@
 import React from 'react';
 
-import { List, ListItem, ListItemText, IconButton } from '@mui/material';
+import { IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import {
   WrapperCss,
   VirtuosoCss,
   VirtuosoBoxCss,
+  ItemBoxCss,
+  ItemTitleBoxCss,
+  ItemNutritionFactsBoxCss,
+  ItemNutritionFactsTextCss,
 } from './DairyEatenProductsList.styled';
 import { VisuallyHidden } from '../VisuallyHidden';
 
@@ -36,19 +40,22 @@ export const DiaryEatenProductsList = props => {
           data={eatenProducts}
           totalCount={eatenProducts.length}
           itemContent={(_index, { title, weight, kcal }) => (
-            <List>
-              <ListItem
-                secondaryAction={
-                  <IconButton edge="end" aria-label="delete">
-                    <CloseIcon />
-                  </IconButton>
-                }
-              >
-                <ListItemText primary={title} />
-                <ListItemText primary={weight} secondary="gram" />
-                <ListItemText primary={Math.round(kcal)} secondary="kcal" />
-              </ListItem>
-            </List>
+            <ItemBoxCss>
+              <ItemTitleBoxCss>{title}</ItemTitleBoxCss>
+
+              <ItemNutritionFactsBoxCss>
+                <ItemNutritionFactsTextCss>
+                  {weight} <span>g</span>
+                </ItemNutritionFactsTextCss>
+                <ItemNutritionFactsTextCss>
+                  {Math.round(kcal)} <span>kcal</span>
+                </ItemNutritionFactsTextCss>
+
+                <IconButton>
+                  <CloseIcon fontSize="small" />
+                </IconButton>
+              </ItemNutritionFactsBoxCss>
+            </ItemBoxCss>
           )}
           components={{ Scroller }}
         />
@@ -58,3 +65,35 @@ export const DiaryEatenProductsList = props => {
     </WrapperCss>
   );
 };
+
+// return (
+//   <WrapperCss>
+//     <VisuallyHidden component="h3">Products eaten per day</VisuallyHidden>
+
+//     {props.day.date ? (
+//       <VirtuosoCss
+//         style={{ height: '200px' }}
+//         data={eatenProducts}
+//         totalCount={eatenProducts.length}
+//         itemContent={(_index, { title, weight, kcal }) => (
+//           <List>
+//             <ListItemCss
+//               secondaryAction={
+//                 <IconButton edge="end" aria-label="delete">
+//                   <CloseIcon fontSize="small" />
+//                 </IconButton>
+//               }
+//             >
+//               <ListItemTextCss primary={title} />
+//               <ListItemTextCss primary={weight} secondary="g" />
+//               <ListItemTextCss primary={Math.round(kcal)} secondary="kcal" />
+//             </ListItemCss>
+//           </List>
+//         )}
+//         components={{ Scroller }}
+//       />
+//     ) : (
+//       <div>The list of foods eaten today is empty</div>
+//     )}
+//   </WrapperCss>
+// );
