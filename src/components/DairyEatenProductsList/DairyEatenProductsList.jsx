@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import {
   WrapperCss,
@@ -10,6 +9,7 @@ import {
   ItemTitleBoxCss,
   ItemNutritionFactsBoxCss,
   ItemNutritionFactsTextCss,
+  IconButtonCss,
 } from './DairyEatenProductsList.styled';
 import { VisuallyHidden } from '../VisuallyHidden';
 
@@ -36,7 +36,7 @@ export const DiaryEatenProductsList = props => {
 
       {props.day.date ? (
         <VirtuosoCss
-          style={{ height: '200px' }}
+          style={{}}
           data={eatenProducts}
           totalCount={eatenProducts.length}
           itemContent={(_index, { title, weight, kcal }) => (
@@ -51,9 +51,9 @@ export const DiaryEatenProductsList = props => {
                   {Math.round(kcal)} <span>kcal</span>
                 </ItemNutritionFactsTextCss>
 
-                <IconButton>
+                <IconButtonCss>
                   <CloseIcon fontSize="small" />
-                </IconButton>
+                </IconButtonCss>
               </ItemNutritionFactsBoxCss>
             </ItemBoxCss>
           )}
@@ -65,35 +65,3 @@ export const DiaryEatenProductsList = props => {
     </WrapperCss>
   );
 };
-
-// return (
-//   <WrapperCss>
-//     <VisuallyHidden component="h3">Products eaten per day</VisuallyHidden>
-
-//     {props.day.date ? (
-//       <VirtuosoCss
-//         style={{ height: '200px' }}
-//         data={eatenProducts}
-//         totalCount={eatenProducts.length}
-//         itemContent={(_index, { title, weight, kcal }) => (
-//           <List>
-//             <ListItemCss
-//               secondaryAction={
-//                 <IconButton edge="end" aria-label="delete">
-//                   <CloseIcon fontSize="small" />
-//                 </IconButton>
-//               }
-//             >
-//               <ListItemTextCss primary={title} />
-//               <ListItemTextCss primary={weight} secondary="g" />
-//               <ListItemTextCss primary={Math.round(kcal)} secondary="kcal" />
-//             </ListItemCss>
-//           </List>
-//         )}
-//         components={{ Scroller }}
-//       />
-//     ) : (
-//       <div>The list of foods eaten today is empty</div>
-//     )}
-//   </WrapperCss>
-// );

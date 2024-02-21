@@ -6,10 +6,13 @@ export const DatePickerBoxCss = styled(Box)`
   display: flex;
   align-items: center;
   margin-top: 48px;
+  margin-bottom: 60px;
   width: 155px;
 
   ${theme.breakpoints.up('tablet')} {
     width: 260px;
+    margin-top: 0;
+    margin-bottom: 40px;
   }
 
   & > .MuiSvgIcon-root {
@@ -33,7 +36,6 @@ export const DiaryListProductsBoxCss = styled(Box)`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 60px 20px;
 
   ${theme.breakpoints.up('tablet')} {
     padding-right: 0;
@@ -41,3 +43,5 @@ export const DiaryListProductsBoxCss = styled(Box)`
     justify-content: start;
   }
 `;
+
+// padding: 60px 20px;

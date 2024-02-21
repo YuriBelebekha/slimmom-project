@@ -6,6 +6,8 @@ import styled from '@emotion/styled';
 import { theme } from '../../constants/theme';
 
 export const ButtonContainedCss = styled(Button)`
+  position: absolute;
+  bottom: 0;
   min-width: 48px;
   height: 48px;
 
