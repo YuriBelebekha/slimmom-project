@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { deleteEatenProductForDate } from 'redux/day/dayOperations';
 
 import CloseIcon from '@mui/icons-material/Close';
 import {
@@ -14,6 +17,8 @@ import {
 import { VisuallyHidden } from '../VisuallyHidden';
 
 export const DiaryEatenProductsList = props => {
+  const dispatch = useDispatch();
+  console.log('props: ', props);
   const Scroller = React.forwardRef(({ style, ...props }, ref) => {
     return (
       <VirtuosoBoxCss
@@ -27,19 +32,28 @@ export const DiaryEatenProductsList = props => {
     );
   });
   const {
-    day: { eatenProducts },
+    day: { id: dayId, eatenProducts },
   } = props;
+  console.log('eatenProducts: ', eatenProducts);
+
+  const handleOnDeleteButtonClick = e => {
+    const eatenProductId = e.currentTarget.getAttribute(
+      'data-eaten-product-id'
+    );
+    dispatch(deleteEatenProductForDate({ dayId, eatenProductId }));
+  };
+
+  useEffect(() => {}, []);
 
   return (
     <WrapperCss>
       <VisuallyHidden component="h3">Products eaten per day</VisuallyHidden>
 
-      {props.day.date ? (
+      {props.day.date && props.day.eatenProducts.length > 0 ? (
         <VirtuosoCss
-          style={{}}
           data={eatenProducts}
           totalCount={eatenProducts.length}
-          itemContent={(_index, { title, weight, kcal }) => (
+          itemContent={(_index, { title, weight, kcal, id }) => (
             <ItemBoxCss>
               <ItemTitleBoxCss>{title}</ItemTitleBoxCss>
 
@@ -51,7 +65,10 @@ export const DiaryEatenProductsList = props => {
                   {Math.round(kcal)} <span>kcal</span>
                 </ItemNutritionFactsTextCss>
 
-                <IconButtonCss>
+                <IconButtonCss
+                  data-eaten-product-id={id}
+                  onClick={handleOnDeleteButtonClick}
+                >
                   <CloseIcon fontSize="small" />
                 </IconButtonCss>
               </ItemNutritionFactsBoxCss>

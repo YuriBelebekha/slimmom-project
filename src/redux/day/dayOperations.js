@@ -21,9 +21,12 @@ export const dayData = createAsyncThunk(
 // DELETE - '/day' - Delete eaten product
 export const deleteEatenProductForDate = createAsyncThunk(
   'product/deleteEatenProduct',
-  async (productId, { rejectWithValue }) => {
+  async (dayIdAndEatenProductId, { rejectWithValue }) => {
+    console.log('productId: ', dayIdAndEatenProductId);
     try {
-      const { data } = await axios.delete('/day', productId);
+      const { data } = await axios.delete('/day', {
+        data: dayIdAndEatenProductId,
+      });
       console.log(data);
       return data;
     } catch (error) {
