@@ -18,7 +18,7 @@ import { VisuallyHidden } from '../VisuallyHidden';
 
 export const DiaryEatenProductsList = props => {
   const dispatch = useDispatch();
-  console.log('props: ', props);
+
   const Scroller = React.forwardRef(({ style, ...props }, ref) => {
     return (
       <VirtuosoBoxCss
@@ -37,12 +37,13 @@ export const DiaryEatenProductsList = props => {
   console.log('eatenProducts: ', eatenProducts);
 
   const handleOnDeleteButtonClick = e => {
+    console.log(e.currentTarget);
     const eatenProductId = e.currentTarget.getAttribute(
       'data-eaten-product-id'
     );
     dispatch(deleteEatenProductForDate({ dayId, eatenProductId }));
   };
-
+  ////////////////////////////////////////////////////////
   useEffect(() => {}, []);
 
   return (
