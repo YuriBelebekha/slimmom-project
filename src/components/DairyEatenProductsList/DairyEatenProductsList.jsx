@@ -18,6 +18,7 @@ import { VisuallyHidden } from '../VisuallyHidden';
 
 export const DiaryEatenProductsList = props => {
   const dispatch = useDispatch();
+  // const [eatenProductId, setEatenProductId] = useState('');
 
   const Scroller = React.forwardRef(({ style, ...props }, ref) => {
     return (
@@ -34,15 +35,18 @@ export const DiaryEatenProductsList = props => {
   const {
     day: { id: dayId, eatenProducts },
   } = props;
-  console.log('eatenProducts: ', eatenProducts);
+  console.log('props: ', props);
 
   const handleOnDeleteButtonClick = e => {
-    console.log(e.currentTarget);
+    // console.log(e.currentTarget);
     const eatenProductId = e.currentTarget.getAttribute(
       'data-eaten-product-id'
     );
+    // console.log('dayId: ', dayId);
+    // console.log('eatenProductId: ', eatenProductId);
     dispatch(deleteEatenProductForDate({ dayId, eatenProductId }));
   };
+
   ////////////////////////////////////////////////////////
   useEffect(() => {}, []);
 
