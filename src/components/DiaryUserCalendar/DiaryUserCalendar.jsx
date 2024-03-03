@@ -45,7 +45,7 @@ export const DiaryUserCalendar = () => {
 
   useEffect(() => {
     handleAcceptDate(selectedDate);
-  }, [handleAcceptDate]);
+  }, [dayInfo, handleAcceptDate]);
 
   return (
     <>
