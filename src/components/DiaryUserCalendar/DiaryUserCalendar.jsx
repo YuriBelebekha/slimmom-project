@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import dayjs from 'dayjs';
+import { isEqual } from 'lodash';
 
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -36,7 +37,12 @@ export const DiaryUserCalendar = () => {
       selectedDate = value;
       dispatch(getInfoForDay({ date: convertDate(selectedDate) })).then(
         args => {
-          setDayInfo(args.payload);
+          setDayInfo(prevState => {
+            if (!isEqual(prevState, args.payload)) {
+              return { ...args.payload };
+            }
+            return prevState;
+          });
         }
       );
     },
