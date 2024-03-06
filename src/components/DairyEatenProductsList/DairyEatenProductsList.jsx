@@ -1,5 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import { ToastOptions } from 'services/toast-options';
 
 import { deleteEatenProductForDate } from 'redux/day/dayOperations';
 
@@ -36,11 +38,15 @@ export const DiaryEatenProductsList = props => {
   } = props;
 
   const handleOnDeleteButtonClick = e => {
+    e.preventDefault();
     const eatenProductId = e.currentTarget.getAttribute(
       'data-eaten-product-id'
     );
     dispatch(deleteEatenProductForDate({ dayId, eatenProductId }));
+    toast.success('Deleted', ToastOptions);
   };
+
+  //////////////////////
 
   return (
     <WrapperCss>
