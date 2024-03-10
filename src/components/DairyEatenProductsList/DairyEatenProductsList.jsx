@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { ToastOptions } from 'services/toast-options';
@@ -47,6 +47,7 @@ export const DiaryEatenProductsList = props => {
   };
 
   //////////////////////
+  useEffect(() => {}, []);
 
   return (
     <WrapperCss>
