@@ -36,16 +36,16 @@ export const DiaryEatenProductsList = props => {
     );
   });
 
-  console.log('props: ', props);
-  console.log('dayInfo: ', dayInfo);
-
-  // const {
-  //   day: { date, id: dayId, eatenProducts },
-  // } = props;
+  // console.log('props: ', props);
+  // console.log('dayInfo: ', dayInfo);
 
   const {
     day: { date, id: dayId, eatenProducts },
-  } = dayInfo;
+  } = props;
+
+  // const {
+  //   day: { date, id: dayId, eatenProducts },
+  // } = dayInfo;
   // console.log('eatenProducts: ', eatenProducts);
 
   const handleOnDeleteButtonClick = e => {
@@ -58,6 +58,7 @@ export const DiaryEatenProductsList = props => {
 
     /////////////////////////
     dispatch(getInfoForDay({ date })).then(args => {
+      console.log(args.payload);
       setDayInfo({ day: args.payload });
     });
   };
