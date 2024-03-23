@@ -21,7 +21,7 @@ import { VisuallyHidden } from '../VisuallyHidden';
 
 export const DiaryEatenProductsList = props => {
   const dispatch = useDispatch();
-  const [dayInfo, setDayInfo] = useState(props);
+  const [dayInfo, setDayInfo] = useState({});
 
   const Scroller = React.forwardRef(({ style, ...props }, ref) => {
     return (
@@ -36,12 +36,16 @@ export const DiaryEatenProductsList = props => {
     );
   });
 
-  // console.log('props: ', props);
-  // console.log('dayInfo: ', dayInfo);
+  console.log('props: ', props);
+  console.log('dayInfo: ', dayInfo);
 
   const {
     day: { date, id: dayId, eatenProducts },
   } = props;
+
+  if (props.day.date && props.day.eatenProducts.length > 0) {
+    console.log('Valid props');
+  }
 
   // const {
   //   day: { date, id: dayId, eatenProducts },
@@ -64,7 +68,7 @@ export const DiaryEatenProductsList = props => {
   };
 
   //////////////////////
-  useEffect(() => {}, [dayInfo]);
+  useEffect(() => {}, [dayInfo, props]);
 
   return (
     <WrapperCss>
