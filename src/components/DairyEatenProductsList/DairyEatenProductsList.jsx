@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { ToastOptions } from 'services/toast-options';
-import { deleteEatenProductForDate } from 'redux/day/dayOperations';
-
 import { getInfoForDay } from 'redux/day/dayOperations';
+import { deleteEatenProductForDate } from 'redux/day/dayOperations';
+// import { isEqual } from 'lodash';
 
 import CloseIcon from '@mui/icons-material/Close';
 import {
@@ -21,7 +21,7 @@ import { VisuallyHidden } from '../VisuallyHidden';
 
 export const DiaryEatenProductsList = props => {
   const dispatch = useDispatch();
-  const [dayInfo, setDayInfo] = useState({});
+  const [dayInfo, setDayInfo] = useState(props);
 
   const Scroller = React.forwardRef(({ style, ...props }, ref) => {
     return (
@@ -35,22 +35,27 @@ export const DiaryEatenProductsList = props => {
       />
     );
   });
-
-  console.log('props: ', props);
   console.log('dayInfo: ', dayInfo);
+  const {
+    day: { date: dateFromProps },
+  } = props;
 
   const {
     day: { date, id: dayId, eatenProducts },
-  } = props;
+  } = dayInfo;
 
-  if (props.day.date && props.day.eatenProducts.length > 0) {
-    console.log('Valid props');
-  }
+  const getDayInfo = useCallback(
+    date => {
+      if (!props.day.date) {
+        return;
+      }
 
-  // const {
-  //   day: { date, id: dayId, eatenProducts },
-  // } = dayInfo;
-  // console.log('eatenProducts: ', eatenProducts);
+      dispatch(getInfoForDay({ date })).then(args => {
+        setDayInfo({ day: args.payload });
+      });
+    },
+    [dispatch, props.day.date]
+  );
 
   const handleOnDeleteButtonClick = e => {
     e.preventDefault();
@@ -60,21 +65,20 @@ export const DiaryEatenProductsList = props => {
     dispatch(deleteEatenProductForDate({ dayId, eatenProductId }));
     toast.success('Deleted', ToastOptions);
 
-    /////////////////////////
     dispatch(getInfoForDay({ date })).then(args => {
-      console.log(args.payload);
       setDayInfo({ day: args.payload });
     });
   };
 
-  //////////////////////
-  useEffect(() => {}, [dayInfo, props]);
+  useEffect(() => {
+    getDayInfo(dateFromProps);
+  }, [dateFromProps, getDayInfo]);
 
   return (
     <WrapperCss>
       <VisuallyHidden component="h3">Products eaten per day</VisuallyHidden>
 
-      {props.day.date && props.day.eatenProducts.length > 0 ? (
+      {dayInfo.day.date && dayInfo.day.eatenProducts.length > 0 ? (
         <VirtuosoCss
           data={eatenProducts}
           totalCount={eatenProducts.length}
