@@ -35,7 +35,7 @@ export const DiaryEatenProductsList = props => {
       />
     );
   });
-  console.log('dayInfo: ', dayInfo);
+
   const {
     day: { date: dateFromProps },
   } = props;
@@ -71,8 +71,13 @@ export const DiaryEatenProductsList = props => {
   };
 
   useEffect(() => {
+    if (!props.day.date) {
+      setDayInfo({ day: '' });
+      return;
+    }
+
     getDayInfo(dateFromProps);
-  }, [dateFromProps, getDayInfo]);
+  }, [dateFromProps, getDayInfo, props]);
 
   return (
     <WrapperCss>
