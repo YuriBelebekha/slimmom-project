@@ -45,7 +45,7 @@ export const DiarySearchProductForm = () => {
     products: { foundProductsList },
   } = store.getState();
   // const allData = store.getState();
-  // console.log(allData);
+  // console.log('allData: ', allData);
 
   const [productName, setProductName] = useState('');
   const [selectedProduct, setSelectedProduct] = useState('');
@@ -98,7 +98,7 @@ export const DiarySearchProductForm = () => {
         productId: productId,
         weight: Number(values.weight),
       };
-      // console.log(payload);
+      // console.log('payload: ', payload);
       dispatch(dayData(payload)).finally(() => {
         setSubmitting(false);
       });
