@@ -50,7 +50,7 @@ export const DiaryUserCalendar = () => {
     [dispatch]
   );
 
-  // console.log('dayInfo: ', dayInfo);
+  console.log('dayInfo: ', dayInfo);
 
   useEffect(() => {
     handleAcceptDate(selectedDate);
