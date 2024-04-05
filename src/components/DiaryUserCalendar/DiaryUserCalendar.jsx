@@ -32,7 +32,7 @@ export const DiaryUserCalendar = () => {
   const screenSize = useScreenSize();
   const dispatch = useDispatch();
 
-  const childRef = useRef(null); // dev
+  const childRefDiaryUserCalendar = useRef(null); // dev
 
   const handleAcceptDate = useCallback(
     value => {
@@ -52,13 +52,20 @@ export const DiaryUserCalendar = () => {
     [dispatch]
   );
 
-  // console.log('dayInfo: ', dayInfo);
+  const handleSetDayInfo = selectedDate => {
+    dispatch(getInfoForDay({ date: convertDate(selectedDate) })).then(args => {
+      setDayInfo(prevState => {
+        if (!isEqual(prevState, args.payload)) {
+          return { ...args.payload };
+        }
+        return prevState;
+      });
+    });
+  };
 
   useEffect(() => {
     handleAcceptDate(selectedDate);
   }, [dayInfo, handleAcceptDate]);
-
-  // console.log('dayInfo after useEffect: ', dayInfo);
 
   return (
     <>
@@ -76,11 +83,14 @@ export const DiaryUserCalendar = () => {
 
       <DiaryListProductsBoxCss>
         {screenSize.width < theme.breakpoints.values.tablet ? (
-          <DiarySearchProductMobile />
+          <DiarySearchProductMobile
+          // ref={childRefDiaryUserCalendar} // dev
+          // parentFunctionDiaryUserCalendar={handleSetDayInfo} // dev
+          />
         ) : (
           <DiarySearchProduct
-            ref={childRef} // dev
-            parentFunction={handleAcceptDate} // dev
+            ref={childRefDiaryUserCalendar} // dev
+            parentFunctionDiaryUserCalendar={handleSetDayInfo} // dev
           />
         )}
       </DiaryListProductsBoxCss>

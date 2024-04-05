@@ -35,7 +35,7 @@ function convertDate(date) {
   return String(dayjs(date).format('YYYY-MM-DD'));
 }
 
-export const DiarySearchProductForm = () => {
+export const DiarySearchProductForm = ({ handleAcceptDateFunction }) => {
   const dispatch = useDispatch();
   const screenSize = useScreenSize();
 
@@ -65,7 +65,7 @@ export const DiarySearchProductForm = () => {
     return () => {
       debouncedResults.cancel();
     };
-  });
+  }, [debouncedResults, dispatch, productName]);
 
   const handleChange = (_event, value, reason) => {
     reason === 'selectOption'
@@ -102,6 +102,8 @@ export const DiarySearchProductForm = () => {
       dispatch(dayData(payload)).finally(() => {
         setSubmitting(false);
       });
+
+      handleAcceptDateFunction(); // dev
 
       resetForm();
     },
