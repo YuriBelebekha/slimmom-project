@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import dayjs from 'dayjs';
 import { isEqual } from 'lodash';
@@ -32,6 +32,8 @@ export const DiaryUserCalendar = () => {
   const screenSize = useScreenSize();
   const dispatch = useDispatch();
 
+  const childRef = useRef(null); // dev
+
   const handleAcceptDate = useCallback(
     value => {
       selectedDate = value;
@@ -50,7 +52,7 @@ export const DiaryUserCalendar = () => {
     [dispatch]
   );
 
-  console.log('dayInfo: ', dayInfo);
+  // console.log('dayInfo: ', dayInfo);
 
   useEffect(() => {
     handleAcceptDate(selectedDate);
@@ -76,7 +78,10 @@ export const DiaryUserCalendar = () => {
         {screenSize.width < theme.breakpoints.values.tablet ? (
           <DiarySearchProductMobile />
         ) : (
-          <DiarySearchProduct />
+          <DiarySearchProduct
+            ref={childRef} // dev
+            parentFunction={handleAcceptDate} // dev
+          />
         )}
       </DiaryListProductsBoxCss>
 
