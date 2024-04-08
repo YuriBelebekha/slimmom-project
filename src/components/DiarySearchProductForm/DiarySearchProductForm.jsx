@@ -101,9 +101,8 @@ export const DiarySearchProductForm = ({ handleAcceptDateFunction }) => {
       // console.log('payload: ', payload);
       dispatch(dayData(payload)).finally(() => {
         setSubmitting(false);
+        handleAcceptDateFunction(); // dev
       });
-
-      handleAcceptDateFunction(); // dev
 
       resetForm();
     },

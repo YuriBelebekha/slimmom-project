@@ -8,6 +8,7 @@ export const DiarySearchProduct = forwardRef(
     const handleChildEvent = () => {
       parentFunctionDiaryUserCalendar();
     };
+
     useImperativeHandle(ref, () => ({
       callParentFunction: handleChildEvent,
     }));
@@ -19,14 +20,3 @@ export const DiarySearchProduct = forwardRef(
     );
   }
 );
-
-// import { DiarySearchProductForm } from '../DiarySearchProductForm';
-// import { BoxCss } from './DiarySearchProduct.styled';
-
-// export const DiarySearchProduct = () => {
-//   return (
-//     <BoxCss>
-//       <DiarySearchProductForm />
-//     </BoxCss>
-//   );
-// };
