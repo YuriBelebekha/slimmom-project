@@ -1,6 +1,6 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { CalculateFormUser } from 'components/CalculateFormUser';
-import { DiaryUserSummary } from 'components/DiaryUserSummary';
+// import { DiaryUserSummary } from 'components/DiaryUserSummary';
 
 const Calculator = () => {
   return (
@@ -11,7 +11,7 @@ const Calculator = () => {
 
       <CalculateFormUser />
 
-      <DiaryUserSummary />
+      {/* <DiaryUserSummary /> */}
     </HelmetProvider>
   );
 };
