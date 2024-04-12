@@ -17,10 +17,11 @@ export const DiaryUserSummary = () => {
   const {
     userInfo: { days },
   } = store.getState();
-  // const allData = store.getState();
-  // console.log('store.getState: ', allData);
+  const allData = store.getState();
+  console.log('store.getState: ', allData);
 
   const convertSelectedDate = dayjs(selectedDate).format('DD.MM.YYYY');
+  // console.log('selectedDate: ', selectedDate);
 
   const userDaySummaryForDate = {
     kcalLeft: '000',
