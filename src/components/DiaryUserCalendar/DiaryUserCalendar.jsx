@@ -32,7 +32,7 @@ export const DiaryUserCalendar = () => {
   const screenSize = useScreenSize();
   const dispatch = useDispatch();
 
-  const childRefDiaryUserCalendar = useRef(null); // dev
+  const childRefDiaryUserCalendar = useRef(null);
 
   const handleAcceptDate = useCallback(
     value => {
