@@ -21,7 +21,6 @@ export const DiaryUserSummary = () => {
   // console.log('store.getState: ', allData);
 
   const convertSelectedDate = dayjs(selectedDate).format('DD.MM.YYYY');
-  // console.log('convertSelectedDate: ', convertSelectedDate);
 
   const userDaySummaryForDate = {
     kcalLeft: '000',
