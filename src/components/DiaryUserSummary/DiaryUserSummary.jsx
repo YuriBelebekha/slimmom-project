@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+// import { useEffect } from 'react';
 
 import {
   WrapperCss,
@@ -14,52 +15,36 @@ import { selectedDate } from '../DiaryUserCalendar/DiaryUserCalendar';
 import { NotAllowedProductsList } from 'components/NotAllowedProductsList';
 
 export const DiaryUserSummary = () => {
-  const {
-    userInfo: { days },
-  } = store.getState();
-  // const allData = store.getState();
-  // console.log('store.getState: ', allData);
-
   const convertSelectedDate = dayjs(selectedDate).format('DD.MM.YYYY');
   // console.log('convertSelectedDate: ', convertSelectedDate);
 
+  const {
+    day: { daySummary },
+  } = store.getState();
+
   const userDaySummaryForDate = {
-    kcalLeft: '000',
-    kcalConsumed: '000',
-    dailyRate: '000',
-    percentsOfDailyRate: '000',
+    kcalLeftForDate: '000',
+    kcalConsumedForDate: '000',
+    dailyRateForDate: '000',
+    percentsOfDailyRateForDate: '000',
   };
 
-  const userDaySummaryArray = days.map(value => {
-    console.log('value: ', value);
-    if (dayjs(value.date).format('DD.MM.YYYY') === convertSelectedDate) {
-      const {
-        daySummary: { kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate },
-      } = value;
+  const { kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate } = daySummary;
+  console.log('from store: ', daySummary);
 
-      const userDaySummary = {
-        kcalLeft,
-        kcalConsumed,
-        dailyRate,
-        percentsOfDailyRate: Math.round(percentsOfDailyRate),
-      };
-      return userDaySummary;
-    } else {
-      return null;
-    }
-  });
+  userDaySummaryForDate.kcalLeftForDate = Math.round(kcalLeft).toString();
+  userDaySummaryForDate.kcalConsumedForDate =
+    Math.round(kcalConsumed).toString();
+  userDaySummaryForDate.dailyRateForDate = Math.round(dailyRate).toString();
+  userDaySummaryForDate.percentsOfDailyRateForDate =
+    Math.round(percentsOfDailyRate).toString();
 
-  userDaySummaryArray.forEach(value => {
-    if (value) {
-      userDaySummaryForDate.kcalLeft = value.kcalLeft;
-      userDaySummaryForDate.kcalConsumed = value.kcalConsumed;
-      userDaySummaryForDate.dailyRate = value.dailyRate;
-      userDaySummaryForDate.percentsOfDailyRate = value.percentsOfDailyRate;
-    }
-  });
-
-  const { kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate } =
-    userDaySummaryForDate;
+  const {
+    kcalLeftForDate,
+    kcalConsumedForDate,
+    dailyRateForDate,
+    percentsOfDailyRateForDate,
+  } = userDaySummaryForDate;
 
   return (
     <WrapperCss>
@@ -70,7 +55,7 @@ export const DiaryUserSummary = () => {
           <ListItemCss>
             <ListItemTextCss primary="Left" sx={{ width: '60%' }} />
             <ListItemTextCss
-              primary={kcalLeft}
+              primary={kcalLeftForDate}
               sx={{ width: '28%', paddingRight: '7px', textAlign: 'right' }}
             />
             <ListItemTextCss primary="kcal" sx={{ width: '12%' }} />
@@ -78,7 +63,7 @@ export const DiaryUserSummary = () => {
           <ListItemCss>
             <ListItemTextCss primary="Consumed" sx={{ width: '60%' }} />
             <ListItemTextCss
-              primary={kcalConsumed}
+              primary={kcalConsumedForDate}
               sx={{ width: '28%', paddingRight: '7px', textAlign: 'right' }}
             />
             <ListItemTextCss primary="kcal" sx={{ width: '12%' }} />
@@ -86,7 +71,7 @@ export const DiaryUserSummary = () => {
           <ListItemCss>
             <ListItemTextCss primary="Daily rate" sx={{ width: '60%' }} />
             <ListItemTextCss
-              primary={dailyRate}
+              primary={dailyRateForDate}
               sx={{ width: '28%', paddingRight: '7px', textAlign: 'right' }}
             />
             <ListItemTextCss primary="kcal" sx={{ width: '12%' }} />
@@ -94,7 +79,7 @@ export const DiaryUserSummary = () => {
           <ListItemCss>
             <ListItemTextCss primary="n% of normal" sx={{ width: '60%' }} />
             <ListItemTextCss
-              primary={percentsOfDailyRate}
+              primary={percentsOfDailyRateForDate}
               sx={{ width: '28%', paddingRight: '7px', textAlign: 'right' }}
             />
             <ListItemTextCss primary="%" sx={{ width: '12%' }} />
