@@ -16,7 +16,7 @@ import { NotAllowedProductsList } from 'components/NotAllowedProductsList';
 
 export const DiaryUserSummary = () => {
   const convertSelectedDate = dayjs(selectedDate).format('DD.MM.YYYY');
-  // console.log('convertSelectedDate: ', convertSelectedDate);
+  console.log('convertSelectedDate: ', convertSelectedDate);
 
   const {
     day: { daySummary },
@@ -29,15 +29,19 @@ export const DiaryUserSummary = () => {
     percentsOfDailyRateForDate: '000',
   };
 
-  const { kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate } = daySummary;
   console.log('from store: ', daySummary);
 
-  userDaySummaryForDate.kcalLeftForDate = Math.round(kcalLeft).toString();
-  userDaySummaryForDate.kcalConsumedForDate =
-    Math.round(kcalConsumed).toString();
-  userDaySummaryForDate.dailyRateForDate = Math.round(dailyRate).toString();
-  userDaySummaryForDate.percentsOfDailyRateForDate =
-    Math.round(percentsOfDailyRate).toString();
+  if (daySummary) {
+    const { kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate } =
+      daySummary;
+
+    userDaySummaryForDate.kcalLeftForDate = Math.round(kcalLeft).toString();
+    userDaySummaryForDate.kcalConsumedForDate =
+      Math.round(kcalConsumed).toString();
+    userDaySummaryForDate.dailyRateForDate = Math.round(dailyRate).toString();
+    userDaySummaryForDate.percentsOfDailyRateForDate =
+      Math.round(percentsOfDailyRate).toString();
+  }
 
   const {
     kcalLeftForDate,
@@ -60,6 +64,7 @@ export const DiaryUserSummary = () => {
             />
             <ListItemTextCss primary="kcal" sx={{ width: '12%' }} />
           </ListItemCss>
+
           <ListItemCss>
             <ListItemTextCss primary="Consumed" sx={{ width: '60%' }} />
             <ListItemTextCss
@@ -68,6 +73,7 @@ export const DiaryUserSummary = () => {
             />
             <ListItemTextCss primary="kcal" sx={{ width: '12%' }} />
           </ListItemCss>
+
           <ListItemCss>
             <ListItemTextCss primary="Daily rate" sx={{ width: '60%' }} />
             <ListItemTextCss
@@ -76,6 +82,7 @@ export const DiaryUserSummary = () => {
             />
             <ListItemTextCss primary="kcal" sx={{ width: '12%' }} />
           </ListItemCss>
+
           <ListItemCss>
             <ListItemTextCss primary="n% of normal" sx={{ width: '60%' }} />
             <ListItemTextCss
@@ -87,7 +94,7 @@ export const DiaryUserSummary = () => {
         </ListCss>
       </div>
 
-      {dailyRate !== '000' ? (
+      {dailyRateForDate !== '000' ? (
         <NotAllowedProductsList />
       ) : (
         <WrapperInnerCss>
