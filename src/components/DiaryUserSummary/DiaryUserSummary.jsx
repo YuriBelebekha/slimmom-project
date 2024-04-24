@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+// import { useDispatch } from 'react-redux';
 // import { useEffect } from 'react';
 
 import {
@@ -14,22 +15,30 @@ import { store } from '../../redux/store';
 import { selectedDate } from '../DiaryUserCalendar/DiaryUserCalendar';
 import { NotAllowedProductsList } from 'components/NotAllowedProductsList';
 
-export const DiaryUserSummary = () => {
+// import { getInfoForDay } from 'redux/day/dayOperations';
+
+const userDaySummaryForDate = {
+  kcalLeftForDate: '000',
+  kcalConsumedForDate: '000',
+  dailyRateForDate: '000',
+  percentsOfDailyRateForDate: '000',
+};
+
+export const DiaryUserSummary = props => {
   const convertSelectedDate = dayjs(selectedDate).format('DD.MM.YYYY');
-  console.log('convertSelectedDate: ', convertSelectedDate);
+  // console.log('convertSelectedDate: ', convertSelectedDate);
+  console.log('props inside DiaryUserSummary: ', props);
+
+  // const dispatch = useDispatch();
+  // dispatch(getInfoForDay({ date: '2024-04-24' })).then(({ payload }) => {
+  //   console.log('payload: ', payload);
+  // });
 
   const {
     day: { daySummary },
   } = store.getState();
 
-  const userDaySummaryForDate = {
-    kcalLeftForDate: '000',
-    kcalConsumedForDate: '000',
-    dailyRateForDate: '000',
-    percentsOfDailyRateForDate: '000',
-  };
-
-  console.log('from store: ', daySummary);
+  // console.log('from store: ', daySummary);
 
   if (daySummary) {
     const { kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate } =

@@ -27,12 +27,14 @@ function convertDate(date) {
   return String(dayjs(date).format('YYYY-MM-DD'));
 }
 
-export const DiaryUserCalendar = () => {
+export const DiaryUserCalendar = props => {
   const [dayInfo, setDayInfo] = useState('');
   const screenSize = useScreenSize();
   const dispatch = useDispatch();
 
   const childRefDiaryUserCalendar = useRef(null);
+
+  props.func(convertDate(selectedDate));
 
   const handleAcceptDate = useCallback(
     value => {

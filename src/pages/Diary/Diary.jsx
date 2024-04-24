@@ -3,13 +3,17 @@ import { DiaryUserCalendar } from 'components/DiaryUserCalendar';
 import { DiaryUserSummary } from 'components/DiaryUserSummary';
 
 const Diary = () => {
+  const getSelectedDate = value => {
+    console.log(value);
+  };
+
   return (
     <HelmetProvider>
       <Helmet>
         <title>SlimMom | Diary</title>
       </Helmet>
 
-      <DiaryUserCalendar />
+      <DiaryUserCalendar func={getSelectedDate} />
 
       <DiaryUserSummary />
     </HelmetProvider>
