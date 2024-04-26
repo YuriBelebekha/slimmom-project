@@ -26,19 +26,16 @@ const userDaySummaryForDate = {
 
 export const DiaryUserSummary = props => {
   const convertSelectedDate = dayjs(selectedDate).format('DD.MM.YYYY');
-  // console.log('convertSelectedDate: ', convertSelectedDate);
-  console.log('props inside DiaryUserSummary: ', props);
-
-  // const dispatch = useDispatch();
-  // dispatch(getInfoForDay({ date: '2024-04-24' })).then(({ payload }) => {
-  //   console.log('payload: ', payload);
-  // });
 
   const {
     day: { daySummary },
   } = store.getState();
 
-  // console.log('from store: ', daySummary);
+  // const AllDataFromStore = store.getState();
+  // console.log('AllDataFromStore: ', AllDataFromStore);
+
+  // useEffect(() => {
+  // }, []);
 
   if (daySummary) {
     const { kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate } =
